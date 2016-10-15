@@ -1,0 +1,35 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{203A2218-4754-C07F-1C87-3DE646320868}") = "ChemicalReactions5", "Assembly-CSharp-firstpass.csproj", "{29B8DEB2-170E-03EC-B658-50854EED42FD}"
+EndProject
+Project("{203A2218-4754-C07F-1C87-3DE646320868}") = "ChemicalReactions5", "Assembly-CSharp.csproj", "{3022917A-A0F2-E8BC-B98D-651083D826BE}"
+EndProject
+Project("{203A2218-4754-C07F-1C87-3DE646320868}") = "ChemicalReactions5", "Assembly-CSharp-Editor.csproj", "{1CD3ABC6-3AA7-09DB-B99D-8E93051FEA57}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{29B8DEB2-170E-03EC-B658-50854EED42FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29B8DEB2-170E-03EC-B658-50854EED42FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29B8DEB2-170E-03EC-B658-50854EED42FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29B8DEB2-170E-03EC-B658-50854EED42FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3022917A-A0F2-E8BC-B98D-651083D826BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3022917A-A0F2-E8BC-B98D-651083D826BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3022917A-A0F2-E8BC-B98D-651083D826BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3022917A-A0F2-E8BC-B98D-651083D826BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CD3ABC6-3AA7-09DB-B99D-8E93051FEA57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CD3ABC6-3AA7-09DB-B99D-8E93051FEA57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CD3ABC6-3AA7-09DB-B99D-8E93051FEA57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CD3ABC6-3AA7-09DB-B99D-8E93051FEA57}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal

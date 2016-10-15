@@ -1,0 +1,39 @@
+<!--?xml version=”1.0” encoding=”UTF-8”?-->
+<stofferCollection>
+	<stoffer>
+		<stoff id="CO">
+			<name>Karbonmonksid</name>
+			<info>
+				Karbonmonoksid, også kalt kullos og karbonoksid, med kjemisk formel CO. Karbonmonoksid er en fargeløs, tilnærmet luktfri, brennbar og svært giftig gass. 
+				Tilleggsinfo: Molekylet består av ett karbonatom og ett oksygenatom. Karbonmonoksid i luft er først og fremst et resultat av ufullstendig forbrenning av karbon og karbonholdige stoffer, som organisk materiale, ved, bensin, diesel og parafin. Ufullstendig forbrenning kan for eksempel skje ved mangelfull tilførsel av oksygen ved en brann, slik at det dannes CO istedenfor CO2. 
+			</info>
+		</stoff>
+		<stoff id="O2">
+			<name>Oksygen</name>
+			<info>
+				Oksygen er et grunnstoff med kjemisk symbol O. Ved standard trykk og temperatur er oksygen gass uten farge og smak. 
+				Tilleggsinfo: Oksygen består av to atomer hvor kjemisk formel er O2. Målt i masse, er oksygen det grunnstoffet som man finner tredje mest av i universet, etter hydrogen og helium. </info>
+		</stoff>
+		<stoff id="C8H18">
+			<name>Bensin</name>
+			<info>
+				Bensin er et drivstoff bestående av hydrokarboner, som oftest produsert ved raffinering av råolje. Bensin er sammen med diesel de vanligste drivstoffene i forbrenningsmotorer.
+				Tilleggsinfo: I motsetning til f.eks. diesel kan ikke bensin tas direkte ut av råoljen, den må foredles for å få de nødvendige karakteristikkene. Bensin er meget brannfarlig, giftig og miljøfarlig. Den er en fargeløs væske med tetthet (egenvekt) på ca. 0,74 kg/l og er uløselig i vann. Eksplosjonsområdet til bensindamp ligger mellom 0,6 og 8 volumprosent.
+			</info>
+		</stoff>
+		<stoff id="H2O">
+			<name>Vann</name>
+			<info>
+				Vann er en kjemisk forbindelse og et polart molekyl. Dens kjemiske formel er H2O. Vann finnes nesten overalt på Jorda og er livsnødvendig for alt kjent liv.
+				Tilleggsinfo: H2O, som betyr at et molekyl vann består av to hydrogenatomer og ett oksygenatom.  Omtrent 70 % av Jordas overflate er dekket av åpent vann (hav, innsjøer og elver). Vannet fryser til is ved 0 grader C, og koker/fordamper ved 100 grader C.
+			</info>
+		</stoff>
+		<stoff id="N">
+			<name>Nitrogen</name>
+			<info>
+				Nitrogen er et grunnstoff med kjemisk symbol N og atomnummer 7. Nitrogen er et ikke-metall som har gassform ved romtemperatur, og er fargeløs og luktfri. 
+				Tilleggsinfo: Gassen er ikke giftig, men den fortrenger luften og dermed oksygenet og forårsaker kvelning. Nitrogen sammen med vann skaper en kjemisk reaksjon.  
+			</info>
+		</stoff>
+	</stoffer>
+</StofferCollection>
