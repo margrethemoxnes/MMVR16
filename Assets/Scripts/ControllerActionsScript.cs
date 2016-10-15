@@ -43,19 +43,19 @@ public class ControllerActionsScript : MonoBehaviour {
 
         if (device.GetTouchUp(SteamVR_Controller.ButtonMask.Trigger))
         {
+            if (col.gameObject.name == "professor")
+            {
+                Rigidbody profBody = col.gameObject.GetComponent<Rigidbody>();
+
+                if (CasesScripts.ExperimentOne == true)
+                { 
+                    //Destroy(profBody);
+                }
+            }
             col.attachedRigidbody.isKinematic = false;
             col.gameObject.transform.SetParent(null);
 
             tossObject(col.attachedRigidbody);
-
-            if (col.gameObject.name == "professor")
-            {
-                if (CasesScripts.experiment != 1)
-                {
-                    Rigidbody profBody = col.gameObject.GetComponent<Rigidbody>();
-                    Destroy(profBody);
-                }
-            }
         }
 
        

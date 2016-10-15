@@ -13,7 +13,7 @@ public class CasesScripts : MonoBehaviour {
     public GameObject bucket;
     public GameObject professor;
 
-    //public float time;
+    public float time;
 
     public static bool ExperimentOne;
     public static bool ExperimentTwo;
@@ -145,14 +145,14 @@ public class CasesScripts : MonoBehaviour {
 
     void FixedUpdate() {
         if (ExperimentOne == true) {
-            TurnOffStatic();
+            TurnOffStatic();  
         }
     }
 
     public void TurnOffStatic() {
-        // professorBody = professor.GetComponent<Rigidbody>();
+        //Rigidbody professorBody = professor.GetComponent<Rigidbody>();
         //Destroy(professorBody);
-        
+
         Rigidbody bensinBody = bensin.AddComponent<Rigidbody>();
         bensinBody.mass = 10;
 
