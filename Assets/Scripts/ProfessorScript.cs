@@ -31,8 +31,7 @@ public class ProfessorScript : MonoBehaviour {
     {
         CasesScripts.experiment = 2;
         CasesScripts.ExperimentOne = true;
-        //TurnOffStatic();
-        eureka.text = "Eureka! Now experiment " + CasesScripts.experiment;
+        Debug.Log("Experiment " + CasesScripts.experiment);
     }
 
 }

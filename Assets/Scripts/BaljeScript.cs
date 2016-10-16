@@ -60,21 +60,26 @@ public class BaljeScript : MonoBehaviour {
     void OnPoofed()
     {
         //throw new System.NotImplementedException();
-        eureka.text = "Takk for at du spilte";
         CasesScripts.ExperimentFour = true;
-        if (CasesScripts.ExperimentTwo == false)
-        {
-            CasesScripts.experiment = 2;
-        }
-        else if (CasesScripts.ExperimentThree == false)
+
+        //Sjekk om alle eksperimenter er utført.
+        if (CasesScripts.ExperimentThree != true)
         {
             CasesScripts.experiment = 3;
+            eureka.text = CasesScripts.experiment.ToString();
+            Debug.Log("Experiment " + CasesScripts.experiment);
+            DisplayHintsScript.hintDisplayed = false;
+        }
+        else if (CasesScripts.ExperimentTwo != true)
+        {
+            CasesScripts.experiment = 2;
+            Debug.Log("Experiment " + CasesScripts.experiment);
+            DisplayHintsScript.hintDisplayed = false;
         }
         else
         {
-            //Spill av fullført demo lyd
+            eureka.text = "Finished!";
         }
-        DisplayHintsScript.hintDisplayed = false;
     }
 
 }

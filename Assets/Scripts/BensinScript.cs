@@ -11,6 +11,7 @@ public class BensinScript : MonoBehaviour {
     public GameObject campfire;
     public GameObject explosion;
     public AudioClip boomSound;
+    public TextMesh eureka;
     
 
     bool played;
@@ -31,6 +32,7 @@ public class BensinScript : MonoBehaviour {
             if (source.isPlaying)
             {
                 Instantiate(explosion, transform.position, Quaternion.identity);
+                OnExploded();
                 played = true;
             }
             if(played == true)
@@ -40,22 +42,23 @@ public class BensinScript : MonoBehaviour {
             //if (OnExploded != null)
             //    OnExploded();
             //EventManager.TriggerEvent("OnExploded");
-            OnExploded();
+            
         }
     }
 
     void OnExploded()
     {
         CasesScripts.ExperimentTwo = true;
-        //Spill av fullført eksperiment lyd
         if (CasesScripts.ExperimentThree == true)
         {
             CasesScripts.experiment = 4;
+            Debug.Log("Experiment " + CasesScripts.experiment);
         }
-        else
-        {
+        else {
             CasesScripts.experiment = 3;
+            Debug.Log("Experiment " + CasesScripts.experiment);
         }
+        //Spill av fullført eksperiment lyd
         DisplayHintsScript.hintDisplayed = false;
     }
 }

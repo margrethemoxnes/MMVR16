@@ -13,8 +13,6 @@ public class CasesScripts : MonoBehaviour {
     public GameObject bucket;
     public GameObject professor;
 
-    public float time;
-
     public static bool ExperimentOne;
     public static bool ExperimentTwo;
     public static bool ExperimentThree;
@@ -85,6 +83,10 @@ public class CasesScripts : MonoBehaviour {
     // Use this for initialization
     void Awake () {
         experiment = 1;
+        ExperimentOne = false;
+        ExperimentTwo = false;
+        ExperimentThree = false;
+        ExperimentFour = false;
         //onSaved = new UnityAction(OnSaved);
         //onExploded = new UnityAction(OnExploded);
         //onSmallGas = new UnityAction(OnSmallSmoke);
@@ -150,9 +152,6 @@ public class CasesScripts : MonoBehaviour {
     }
 
     public void TurnOffStatic() {
-        //Rigidbody professorBody = professor.GetComponent<Rigidbody>();
-        //Destroy(professorBody);
-
         Rigidbody bensinBody = bensin.AddComponent<Rigidbody>();
         bensinBody.mass = 10;
 

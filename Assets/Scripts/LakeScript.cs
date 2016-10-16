@@ -31,7 +31,8 @@ public class LakeScript : MonoBehaviour {
                 Instantiate(NitrogenGasInWater, transform.position, Quaternion.identity);
                 //if (OnSmallSmoke != null)
                 //    OnSmallSmoke();
-                EventManager.TriggerEvent("OnSmallSmoke");
+                //EventManager.TriggerEvent("OnSmallSmoke");
+                OnSmallSmoke();
             }
 
         }
@@ -55,16 +56,19 @@ public class LakeScript : MonoBehaviour {
     void OnSmallSmoke()
     {
         CasesScripts.ExperimentThree = true;
-        eureka.text = "Nitrogen i vann. Hurra!";
-        if (CasesScripts.ExperimentTwo == true)
-        {
-            CasesScripts.experiment = 4;
-        }
-        else
+        DisplayHintsScript.hintDisplayed = false;
+        //Spill av fullført eksperiment lyd
+
+        if (CasesScripts.ExperimentTwo != true)
         {
             CasesScripts.experiment = 2;
+            Debug.Log("Experiment " + CasesScripts.experiment);
         }
-        //Spill av fullført eksperiment lyd
-        DisplayHintsScript.hintDisplayed = false;
+        else {
+            CasesScripts.experiment = 4;
+            Debug.Log("Experiment " + CasesScripts.experiment);
+        }
+
+        Debug.Log("Experiment " + CasesScripts.experiment);
     }
 }
