@@ -5,7 +5,7 @@ using System.Collections;
 public class OpenBookScript : MonoBehaviour {
     SteamVR_TrackedObject trackedObj;
     SteamVR_Controller.Device device;
-    float scale = 3.0f;
+    float scale = 10.0f;
 
     public GameObject book;
 

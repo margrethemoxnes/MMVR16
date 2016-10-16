@@ -11,8 +11,9 @@ public class FireLightScript : MonoBehaviour
 
 	void Update()
 	{
-		random = Random.Range(0.0f, 150.0f);
-		float noise = Mathf.PerlinNoise(random, Time.time);
+        //random = Random.Range(0.0f, 150.0f);
+        random = Random.Range(0.0f, 10.0f);
+        float noise = Mathf.PerlinNoise(random, Time.time);
 		fireLight.GetComponent<Light>().intensity = Mathf.Lerp(minIntensity, maxIntensity, noise);
 	}
 }
