@@ -56,5 +56,6 @@ public class BensinScript : MonoBehaviour {
         {
             CasesScripts.experiment = 3;
         }
+        DisplayHintsScript.hintDisplayed = false;
     }
 }

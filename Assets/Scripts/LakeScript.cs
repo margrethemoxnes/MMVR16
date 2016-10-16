@@ -65,5 +65,6 @@ public class LakeScript : MonoBehaviour {
             CasesScripts.experiment = 2;
         }
         //Spill av fullført eksperiment lyd
+        DisplayHintsScript.hintDisplayed = false;
     }
 }

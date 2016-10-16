@@ -74,6 +74,7 @@ public class BaljeScript : MonoBehaviour {
         {
             //Spill av fullført demo lyd
         }
+        DisplayHintsScript.hintDisplayed = false;
     }
 
 }

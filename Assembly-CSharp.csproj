@@ -52,6 +52,7 @@
      <Compile Include="Assets\Scripts\CasesScripts.cs" />
      <Compile Include="Assets\Scripts\ControllerActionsScript.cs" />
      <Compile Include="Assets\Scripts\CountErrorsScript.cs" />
+     <Compile Include="Assets\Scripts\DisplayHintsScript.cs" />
      <Compile Include="Assets\Scripts\EventManager.cs" />
      <Compile Include="Assets\Scripts\LakeScript.cs" />
      <Compile Include="Assets\Scripts\NitrogenScript.cs" />
