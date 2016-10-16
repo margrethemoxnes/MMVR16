@@ -24,7 +24,7 @@ public class ProfessorScript : MonoBehaviour {
 
     void OnCollisionExit(Collision col) {
         if (col.gameObject == telt) {
-            source.PlayOneShot(applause, 1F);
+            //source.PlayOneShot(applause, 1F);
 
             //if (OnSaved != null)
             //     OnSaved();
