@@ -11,6 +11,12 @@ public class ProfessorScript : MonoBehaviour {
     public GameObject telt;
     private AudioSource source;
 
+    // For TurnOffStatic method
+    public GameObject bensin;
+    public GameObject nitrogen;
+    public GameObject nitrogenLid;
+    public GameObject bucket;
+
     void Awake()
     {
         source = GetComponent<AudioSource>();
@@ -31,7 +37,23 @@ public class ProfessorScript : MonoBehaviour {
     {
         CasesScripts.experiment = 2;
         CasesScripts.ExperimentOne = true;
-        Debug.Log("Experiment " + CasesScripts.experiment);
+        DisplayHintsScript.startTime = Time.time;
+        TurnOffStatic();
+    }
+
+    void TurnOffStatic()
+    {
+        Rigidbody bensinBody = bensin.AddComponent<Rigidbody>();
+        bensinBody.mass = 10;
+
+        Rigidbody bucketBody = bucket.AddComponent<Rigidbody>();
+        bucketBody.mass = 5;
+
+        Rigidbody nitrogenBody = nitrogen.AddComponent<Rigidbody>();
+        nitrogenBody.mass = 50;
+
+        Rigidbody nitrogenLidBody = nitrogenLid.AddComponent<Rigidbody>();
+        nitrogenLidBody.mass = 1;
     }
 
 }

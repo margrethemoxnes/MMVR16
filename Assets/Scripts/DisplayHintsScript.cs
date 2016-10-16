@@ -7,16 +7,15 @@ public class DisplayHintsScript : MonoBehaviour {
     public Material experiment2;
     public Material experiment3;
     public Material experiment4;
-    float startTime;
-    float elapsedTime;
-    float hintTime;
+    public static float startTime;
+    public static float elapsedTime;
+    public static float hintTime;
     public AudioClip hintAvailable;
     private AudioSource source;
     private Renderer rend;
     
     void Awake () {
         hintDisplayed = false;
-        startTime = Time.time;
         hintTime = 30;
         source = GetComponent<AudioSource>();
         rend = GetComponent<Renderer>();
@@ -36,8 +35,8 @@ public class DisplayHintsScript : MonoBehaviour {
         if (hintDisplayed == false)
         {
             hintDisplayed = true;
-            hintTime += elapsedTime;
             source.PlayOneShot(hintAvailable, 1F);
+            Debug.Log("hintTime:" + hintTime);
             //Aktiver materialet utifra aktivt experiment
             switch (CasesScripts.experiment)
             {

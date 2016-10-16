@@ -7,21 +7,15 @@ public class CasesScripts : MonoBehaviour {
     public static int experiment;
     public TextMesh eureka1;
 
-    public GameObject bensin;
-    public GameObject nitrogen;
-    public GameObject nitrogenLid;
-    public GameObject bucket;
-    public GameObject professor;
-
     public static bool ExperimentOne;
     public static bool ExperimentTwo;
     public static bool ExperimentThree;
     public static bool ExperimentFour;
 
-    private UnityAction onSaved;
-    private UnityAction onExploded;
-    private UnityAction onSmallGas;
-    private UnityAction onPoofed;
+    //private UnityAction onSaved;
+    //private UnityAction onExploded;
+    //private UnityAction onSmallGas;
+    //private UnityAction onPoofed;
 
    
 
@@ -144,26 +138,7 @@ public class CasesScripts : MonoBehaviour {
 
     //}
     */
-
-    void FixedUpdate() {
-        if (ExperimentOne == true) {
-            TurnOffStatic();  
-        }
-    }
-
-    public void TurnOffStatic() {
-        Rigidbody bensinBody = bensin.AddComponent<Rigidbody>();
-        bensinBody.mass = 10;
-
-        Rigidbody bucketBody = bucket.AddComponent<Rigidbody>();
-        bucketBody.mass = 5;
-
-        Rigidbody nitrogenBody = nitrogen.AddComponent<Rigidbody>();
-        nitrogenBody.mass = 50;
-
-        Rigidbody nitrogenLidBody = nitrogenLid.AddComponent<Rigidbody>();
-        nitrogenLidBody.mass = 1;
-    }
+    
 
     /*
     void OnSaved()

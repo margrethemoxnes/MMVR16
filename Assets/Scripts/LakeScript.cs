@@ -32,7 +32,6 @@ public class LakeScript : MonoBehaviour {
                 //if (OnSmallSmoke != null)
                 //    OnSmallSmoke();
                 //EventManager.TriggerEvent("OnSmallSmoke");
-                OnSmallSmoke();
             }
 
         }
@@ -45,6 +44,7 @@ public class LakeScript : MonoBehaviour {
                 {
                     source.PlayOneShot(applause, 1F);
                     audioPlayed = true;
+                    OnSmallSmoke();
                 }
                 else {
                     eureka.text = "Kollisjon. Men lokket er på.";
@@ -57,6 +57,7 @@ public class LakeScript : MonoBehaviour {
     {
         CasesScripts.ExperimentThree = true;
         DisplayHintsScript.hintDisplayed = false;
+        DisplayHintsScript.startTime = Time.time;
         //Spill av fullført eksperiment lyd
 
         if (CasesScripts.ExperimentTwo != true)

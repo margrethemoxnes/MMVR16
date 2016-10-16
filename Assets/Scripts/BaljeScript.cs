@@ -69,12 +69,14 @@ public class BaljeScript : MonoBehaviour {
             eureka.text = CasesScripts.experiment.ToString();
             Debug.Log("Experiment " + CasesScripts.experiment);
             DisplayHintsScript.hintDisplayed = false;
+            DisplayHintsScript.startTime = Time.time;
         }
         else if (CasesScripts.ExperimentTwo != true)
         {
             CasesScripts.experiment = 2;
             Debug.Log("Experiment " + CasesScripts.experiment);
             DisplayHintsScript.hintDisplayed = false;
+            DisplayHintsScript.startTime = Time.time;
         }
         else
         {

@@ -60,5 +60,6 @@ public class BensinScript : MonoBehaviour {
         }
         //Spill av fullført eksperiment lyd
         DisplayHintsScript.hintDisplayed = false;
+        DisplayHintsScript.startTime = Time.time;
     }
 }
