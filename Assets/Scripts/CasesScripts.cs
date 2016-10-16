@@ -5,7 +5,6 @@ using System.Collections;
 public class CasesScripts : MonoBehaviour {
 
     public static int experiment;
-    public TextMesh eureka1;
 
     public static bool ExperimentOne;
     public static bool ExperimentTwo;

@@ -9,14 +9,12 @@ public class BucketScript : MonoBehaviour {
     public TextMesh degrees;
     public static bool boiled;
 
-    public TextMesh eureka;
 
     void Awake()
     {
         boiled = false;
         waterInBucket = false;
     }
-
     void OnCollisionEnter(Collision col)
     {
         if (col.gameObject == lake)

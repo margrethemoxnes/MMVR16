@@ -6,8 +6,7 @@ public class ProfessorScript : MonoBehaviour {
     //public delegate void Saved();
     //public static event Saved OnSaved;
     public AudioClip applause;
-    public TextMesh eureka;
-
+  
     public GameObject telt;
     private AudioSource source;
 

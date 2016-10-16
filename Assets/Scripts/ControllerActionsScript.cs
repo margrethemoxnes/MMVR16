@@ -24,6 +24,7 @@ public class ControllerActionsScript : MonoBehaviour {
     {
         if (device.GetTouchDown(SteamVR_Controller.ButtonMask.Trigger))
         {
+            Debug.Log("Pressed");
             if (col.gameObject == professor)
             {
                 if (CasesScripts.experiment != 1)
@@ -44,6 +45,7 @@ public class ControllerActionsScript : MonoBehaviour {
 
         if (device.GetTouchUp(SteamVR_Controller.ButtonMask.Trigger))
         {
+            Debug.Log("Released");
             if (col.gameObject == professor)
             {
                 Rigidbody profBody = col.gameObject.GetComponent<Rigidbody>();
