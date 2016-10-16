@@ -5,6 +5,7 @@ using System.Collections;
 [RequireComponent(typeof(SteamVR_TrackedObject))]
 public class ControllerActionsScript : MonoBehaviour {
 
+    public GameObject professor;
     SteamVR_TrackedObject trackedObj;
     SteamVR_Controller.Device device;
 
@@ -23,7 +24,7 @@ public class ControllerActionsScript : MonoBehaviour {
     {
         if (device.GetTouchDown(SteamVR_Controller.ButtonMask.Trigger))
         {
-            if (col.gameObject.name == "professor")
+            if (col.gameObject == professor)
             {
                 if (CasesScripts.experiment != 1)
                 {
@@ -43,13 +44,15 @@ public class ControllerActionsScript : MonoBehaviour {
 
         if (device.GetTouchUp(SteamVR_Controller.ButtonMask.Trigger))
         {
-            if (col.gameObject.name == "professor")
+            if (col.gameObject == professor)
             {
                 Rigidbody profBody = col.gameObject.GetComponent<Rigidbody>();
 
                 if (CasesScripts.ExperimentOne == true)
-                { 
-                    //Destroy(profBody);
+                {
+                    if (professor.transform.position.y == 0) { 
+                        Destroy(profBody);
+                    }
                 }
             }
             col.attachedRigidbody.isKinematic = false;
