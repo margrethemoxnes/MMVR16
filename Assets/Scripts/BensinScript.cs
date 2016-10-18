@@ -11,7 +11,7 @@ public class BensinScript : MonoBehaviour {
     public GameObject campfire;
     public GameObject explosion;
     public AudioClip boomSound;
-    public TextMesh eureka;
+    //public TextMesh eureka;
     
 
     bool played;

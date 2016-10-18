@@ -16,15 +16,14 @@ public class ControllerActionsScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-        device = SteamVR_Controller.Input((int)trackedObj.index);        
-	}
+        device = SteamVR_Controller.Input((int)trackedObj.index);
+    }
 
     //Plukk opp
     void OnTriggerStay(Collider col)
     {
         if (device.GetTouchDown(SteamVR_Controller.ButtonMask.Trigger))
         {
-            Debug.Log("Pressed");
             if (col.gameObject == professor)
             {
                 if (CasesScripts.experiment != 1)
@@ -45,7 +44,6 @@ public class ControllerActionsScript : MonoBehaviour {
 
         if (device.GetTouchUp(SteamVR_Controller.ButtonMask.Trigger))
         {
-            Debug.Log("Released");
             if (col.gameObject == professor)
             {
                 Rigidbody profBody = col.gameObject.GetComponent<Rigidbody>();

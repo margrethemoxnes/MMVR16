@@ -15,7 +15,11 @@ public class LakeScript : MonoBehaviour {
 
     private AudioSource source;
 
-    public TextMesh eureka;
+    //public TextMesh eureka;
+
+    float nitrogenX;
+    float nitrogenZ;
+    float lakeY;
 
     void Awake() {
         source = GetComponent<AudioSource>();
@@ -27,8 +31,11 @@ public class LakeScript : MonoBehaviour {
         if (col.gameObject == nitrogen) {
             if (NitrogenScript.nitrogenOpen == true)
             {
+                nitrogenX = col.gameObject.transform.position.x;
+                nitrogenZ = col.gameObject.transform.position.z;
+                lakeY = col.gameObject.transform.position.y;
                 //eureka.text = "Kollisjon. Og lokket er av.";
-                Instantiate(NitrogenGasInWater, transform.position, Quaternion.identity);
+                Instantiate(NitrogenGasInWater, new Vector3(nitrogenX, lakeY, nitrogenZ), Quaternion.identity);
                 //if (OnSmallSmoke != null)
                 //    OnSmallSmoke();
                 //EventManager.TriggerEvent("OnSmallSmoke");
@@ -47,7 +54,7 @@ public class LakeScript : MonoBehaviour {
                     OnSmallSmoke();
                 }
                 else {
-                    eureka.text = "Kollisjon. Men lokket er på.";
+                    //eureka.text = "Kollisjon. Men lokket er på.";
                 }
             }
         }

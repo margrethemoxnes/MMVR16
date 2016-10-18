@@ -12,21 +12,19 @@ public class BaljeScript : MonoBehaviour {
     public GameObject hugeNitrogenSmokeInBox;
     public GameObject bucket;
 
-    public AudioClip poof;
-    private AudioSource source;
-
-    public TextMesh eureka;
+    //public AudioClip poof;
+    //private AudioSource source;
 
     void Awake() {
         nitrogenInBox = false;
-        source = GetComponent<AudioSource>();
+        //source = GetComponent<AudioSource>();
     }
 
     void OnCollisionEnter(Collision col)
     {
         if (col.gameObject == nitrogen) {
             //Spill av lyd fra professoren. Indikerer at de er på riktig vei.
-            eureka.text = "Nitrogen i balja";
+            //eureka.text = "Nitrogen i balja";
                 nitrogenInBox = true;
                 Instantiate(nitrogenSmokeInBox, transform.position, Quaternion.identity);
         }
@@ -46,13 +44,13 @@ public class BaljeScript : MonoBehaviour {
                     OnPoofed();
                 }
                 else {
-                    eureka.text = "Ha i nitrogen først";
+                    //eureka.text = "Ha i nitrogen først";
                     //Lyd. Hmmm....du har kanskje glemt noe....
                 }
             }
             else {
                 //Lyd. Hmmmm.... kanskje vannet bør ha en annen temperatur?
-                eureka.text = "Vannet må kokes";
+                //eureka.text = "Vannet må kokes";
             }
         }
     }
@@ -66,7 +64,7 @@ public class BaljeScript : MonoBehaviour {
         if (CasesScripts.ExperimentThree != true)
         {
             CasesScripts.experiment = 3;
-            eureka.text = CasesScripts.experiment.ToString();
+            //eureka.text = CasesScripts.experiment.ToString();
             Debug.Log("Experiment " + CasesScripts.experiment);
             DisplayHintsScript.hintDisplayed = false;
             DisplayHintsScript.startTime = Time.time;
@@ -80,7 +78,7 @@ public class BaljeScript : MonoBehaviour {
         }
         else
         {
-            eureka.text = "Finished!";
+         //   eureka.text = "Finished!";
         }
     }
 
