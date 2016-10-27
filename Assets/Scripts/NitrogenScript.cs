@@ -21,7 +21,7 @@ public class NitrogenScript : MonoBehaviour {
         {
             //Spill av lyd om nitrogen åpen.
             nitrogenOpen = true;
-            Instantiate(nitrogenGasContainer, new Vector3(nitrogenX, 11.22f, nitrogenZ), Quaternion.identity);
+            Instantiate(nitrogenGasContainer, new Vector3(nitrogenX, 10.624f, nitrogenZ), Quaternion.identity);
            
         }
     }
