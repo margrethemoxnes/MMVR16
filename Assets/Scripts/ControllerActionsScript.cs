@@ -119,6 +119,11 @@ public class ControllerActionsScript : MonoBehaviour {
                     source.PlayOneShot(hvile, 1F);
                     EnableOxygen();
                 }
+                else
+                {
+                    col.attachedRigidbody.isKinematic = true;
+                    col.gameObject.transform.SetParent(gameObject.transform);
+                }
             }
             else { 
                 if(ProfessorScript.tutorialPlayed == true) { 

@@ -25,20 +25,12 @@ public class ProfessorScript : MonoBehaviour {
     void Awake()
     {
         source = GetComponent<AudioSource>();
-        //profPos = gameObject.transform.position;
-        //profRot = gameObject.transform.eulerAngles;
         tutorialPlayed = false;
         audioPlaying = false;
     }
 
-   
 
-    //void OnCollisionStay(Collision col) {
-    //    if(col.gameObject == telt){
-    //        gameObject.transform.position = profPos;
-    //        gameObject.transform.position = profRot;
-    //    }
-    //}
+    
 
     void OnTriggerExit(Collider col) {
         if (col.gameObject == telt) {
