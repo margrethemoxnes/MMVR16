@@ -13,18 +13,21 @@ public class BaljeScript : MonoBehaviour {
     public GameObject bucket;
 
     //public AudioClip poof;
-    //private AudioSource source;
+    private AudioSource source;
+    public AudioClip nitrogenInContainer;
+    public AudioClip haNitrogenFirst;
+    public AudioClip vannetKokesForst;
+    public AudioClip eureka;
 
     void Awake() {
         nitrogenInBox = false;
-        //source = GetComponent<AudioSource>();
+        source = GetComponent<AudioSource>();
     }
 
     void OnCollisionEnter(Collision col)
     {
         if (col.gameObject == nitrogen) {
-            //Spill av lyd fra professoren. Indikerer at de er på riktig vei.
-            //eureka.text = "Nitrogen i balja";
+            source.PlayOneShot(nitrogenInContainer, 1F);
                 nitrogenInBox = true;
                 Instantiate(nitrogenSmokeInBox, transform.position, Quaternion.identity);
         }
@@ -44,13 +47,11 @@ public class BaljeScript : MonoBehaviour {
                     OnPoofed();
                 }
                 else {
-                    //eureka.text = "Ha i nitrogen først";
-                    //Lyd. Hmmm....du har kanskje glemt noe....
+                    source.PlayOneShot(haNitrogenFirst, 1F);
                 }
             }
             else {
-                //Lyd. Hmmmm.... kanskje vannet bør ha en annen temperatur?
-                //eureka.text = "Vannet må kokes";
+                source.PlayOneShot(vannetKokesForst, 1F);
             }
         }
     }
@@ -59,6 +60,7 @@ public class BaljeScript : MonoBehaviour {
     {
         //throw new System.NotImplementedException();
         CasesScripts.ExperimentFour = true;
+        source.PlayOneShot(eureka, 1F);
 
         //Sjekk om alle eksperimenter er utført.
         if (CasesScripts.ExperimentThree != true)

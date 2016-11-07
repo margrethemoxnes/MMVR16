@@ -14,6 +14,8 @@ public class BucketScript : MonoBehaviour {
     float bucketY;
     float bucketZ;
 
+    private AudioSource source;
+    public AudioClip vannetErKokt;
 
     void Awake()
     {
@@ -23,10 +25,10 @@ public class BucketScript : MonoBehaviour {
         bucketX = gameObject.transform.position.x;
         bucketY = gameObject.transform.position.y;
         bucketZ = gameObject.transform.position.z;
+        source = GetComponent<AudioSource>();
     }
     void OnCollisionEnter(Collision col)
     {
-        Debug.Log("Botte i vann");
         if (col.gameObject == lake)
         {
             if(gameObject.transform.position.y <= 9.7f){
@@ -34,20 +36,15 @@ public class BucketScript : MonoBehaviour {
                 rend.enabled = true;
                 degrees.text = "2°C";
             }
-
-            //if(gameObject.transform.position.y < 0)
-            //{
-            //    gameObject.transform.position = new Vector3(bucketX, bucketY, bucketZ); ;
-            //}
         }
  
         if (col.gameObject == campfire)
         {
-            //Spill av lyd. Fullført koking av vann.
             if (waterInBucket == true)
             {
                 degrees.text = "100°C";
                 boiled = true;
+                source.PlayOneShot(vannetErKokt, 1F);
             }
         }
     }

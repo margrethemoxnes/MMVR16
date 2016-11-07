@@ -6,13 +6,33 @@ using System.Collections;
 public class ControllerActionsScript : MonoBehaviour {
 
     public GameObject professor;
+    public GameObject Nitrogen;
+    public GameObject Co;
+    public GameObject O2;
+    public GameObject H2O;
+    public GameObject Bensin;
+
+    Vector3 NitrogenPos;
+    Vector3 CoPos;
+    Vector3 O2Pos;
+    Vector3 H2oPos;
+    Vector3 BensinPos;
+
     SteamVR_TrackedObject trackedObj;
     SteamVR_Controller.Device device;
+    private AudioSource source;
+    public AudioClip hvile;
 
     // Use this for initialization
     void Awake () {
         trackedObj = GetComponent<SteamVR_TrackedObject>();
-	}
+        source = GetComponent<AudioSource>();
+        NitrogenPos = Nitrogen.transform.position;
+        CoPos = Co.transform.position;
+        O2Pos = O2.transform.position;
+        H2oPos = H2O.transform.position;
+        BensinPos = Bensin.transform.position;
+    }
 	
 	// Update is called once per frame
 	void FixedUpdate () {
@@ -28,7 +48,7 @@ public class ControllerActionsScript : MonoBehaviour {
             {
                 if (CasesScripts.experiment != 1)
                 {
-                    // Lyd. Jeg må slappe av litt.
+                    source.PlayOneShot(hvile, 1F);
                 }
                 else {
                     //Kode for å dra
@@ -59,6 +79,12 @@ public class ControllerActionsScript : MonoBehaviour {
             col.gameObject.transform.SetParent(null);
 
             tossObject(col.attachedRigidbody);
+
+            Nitrogen.transform.position = NitrogenPos;
+            H2O.transform.position = H2oPos;
+            Co.transform.position = CoPos;
+            Bensin.transform.position = BensinPos;
+            O2.transform.position = O2Pos;
         }
 
        

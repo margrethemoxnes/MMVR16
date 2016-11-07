@@ -22,14 +22,14 @@ public class ReadTextScript : MonoBehaviour {
     }
 
     
-    [System.Serializable]
-    public class infoMaterials { 
-        public Material txtBensin;
-        public Material txtVann;
-        public Material txtCo;
-        public Material txtNitrogen;
-        public Material txtOksygen;
-    }
+    //[System.Serializable]
+    //public class infoMaterials { 
+    //    public Material txtBensin;
+    //    public Material txtVann;
+    //    public Material txtCo;
+    //    public Material txtNitrogen;
+    //    public Material txtOksygen;
+    //}
 
     [System.Serializable]
     public class infoAudio { 
@@ -58,11 +58,14 @@ public class ReadTextScript : MonoBehaviour {
 
     public ColliderGameObjects colliders;
     public objectPlanes planes;
-    public infoMaterials materials;
-    public infoAudio audio;
+    //public infoMaterials materials;
+    public infoAudio theInfoAudio;
+
+    float hmdY;
 
     // Use this for initialization
     void Awake () {
+        hmdY = (gameObject.transform.position.y) + 100;
         bensinPlayed = false;
         source = GetComponent<AudioSource>();
         bensinRend = planes.bensinPlane.GetComponent<Renderer>();
@@ -70,6 +73,13 @@ public class ReadTextScript : MonoBehaviour {
         coRend = planes.coPlane.GetComponent<Renderer>();
         nitrogenRend = planes.nitrogenPlane.GetComponent<Renderer>();
         oksygenRend = planes.oksygenPlane.GetComponent<Renderer>();
+
+        // Sett høyde lik camera
+        planes.bensinPlane.transform.Translate(transform.position.x, hmdY, transform.position.z);
+        planes.nitrogenPlane.transform.Translate(transform.position.x, hmdY, transform.position.z);
+        planes.coPlane.transform.Translate(transform.position.x, hmdY, transform.position.z);
+        planes.oksygenPlane.transform.Translate(transform.position.x, hmdY, transform.position.z);
+        planes.vannPlane.transform.Translate(transform.position.x, hmdY, transform.position.z);
     }
 	
 	// Update is called once per frame
@@ -82,9 +92,9 @@ public class ReadTextScript : MonoBehaviour {
         if(col.gameObject == colliders.bensin)
         {
             if (bensinPlayed == false) {
-                source.PlayOneShot(audio.infoBensin, 1F);
+                source.PlayOneShot(theInfoAudio.infoBensin, 1F);
                 bensinPlayed = true;
-                bensinRend.material = materials.txtBensin;
+                bensinRend.enabled = true;
             }
         }
 
@@ -92,9 +102,9 @@ public class ReadTextScript : MonoBehaviour {
         {
             if (vannPlayed == false)
             {
-                source.PlayOneShot(audio.infoVann, 1F);
+                source.PlayOneShot(theInfoAudio.infoVann, 1F);
                 vannPlayed = true;
-                vannRend.material = materials.txtVann;
+                vannRend.enabled = true;
             }
         }
 
@@ -102,9 +112,9 @@ public class ReadTextScript : MonoBehaviour {
         {
             if (coPlayed == false)
             {
-                source.PlayOneShot(audio.infoCo, 1F);
+                source.PlayOneShot(theInfoAudio.infoCo, 1F);
                 coPlayed = true;
-                coRend.material = materials.txtCo;
+                coRend.enabled = true;
             }
         }
 
@@ -112,9 +122,9 @@ public class ReadTextScript : MonoBehaviour {
         {
             if (nitrogenPlayed == false)
             {
-                source.PlayOneShot(audio.infoNitrogen, 1F);
+                source.PlayOneShot(theInfoAudio.infoNitrogen, 1F);
                 nitrogenPlayed = true;
-                nitrogenRend.material = materials.txtNitrogen;
+                nitrogenRend.enabled = true;
             }
         }
 
@@ -122,9 +132,9 @@ public class ReadTextScript : MonoBehaviour {
         {
             if (oksygenPlayed == false)
             {
-                source.PlayOneShot(audio.infoOksygen, 1F);
+                source.PlayOneShot(theInfoAudio.infoOksygen, 1F);
                 oksygenPlayed = true;
-                oksygenRend.material = materials.txtOksygen;
+                oksygenRend.enabled = true;
             }
         }
     }

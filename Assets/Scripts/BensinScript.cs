@@ -11,6 +11,7 @@ public class BensinScript : MonoBehaviour {
     public GameObject campfire;
     public GameObject explosion;
     public AudioClip boomSound;
+    public AudioClip eureka;
     //public TextMesh eureka;
     
 
@@ -49,6 +50,7 @@ public class BensinScript : MonoBehaviour {
     void OnExploded()
     {
         CasesScripts.ExperimentTwo = true;
+        source.PlayOneShot(eureka, 1F);
         if (CasesScripts.ExperimentThree == true)
         {
             CasesScripts.experiment = 4;

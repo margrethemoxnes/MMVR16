@@ -9,9 +9,15 @@ public class OpenBookScript : MonoBehaviour {
 
     public GameObject book;
 
+    bool firstOpen;
+    private AudioSource source;
+    public AudioClip fantBoken;
+
     void Awake() {
         trackedObj = GetComponent<SteamVR_TrackedObject>();
         book.transform.SetParent(gameObject.transform);
+        firstOpen = false;
+        source = GetComponent<AudioSource>();
     }
 
     void OpenBook() {
@@ -28,6 +34,10 @@ public class OpenBookScript : MonoBehaviour {
         if (device.GetTouchDown(SteamVR_Controller.ButtonMask.Trigger))
         {
             OpenBook();
+            if (firstOpen == false) {
+                firstOpen = true;
+                source.PlayOneShot(fantBoken, 1F);
+            }
         }
         
         if(device.GetTouchUp(SteamVR_Controller.ButtonMask.Trigger))
