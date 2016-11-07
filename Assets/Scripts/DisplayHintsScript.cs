@@ -32,7 +32,7 @@ public class DisplayHintsScript : MonoBehaviour {
     }
 
     void DisplayHints() { 
-        if (hintDisplayed == false)
+        if (hintDisplayed == false && ProfessorScript.tutorialPlayed == true)
         {
             hintDisplayed = true;
             source.PlayOneShot(hintAvailable, 1F);

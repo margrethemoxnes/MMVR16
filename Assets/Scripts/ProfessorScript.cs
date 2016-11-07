@@ -5,7 +5,7 @@ using System.Collections;
 public class ProfessorScript : MonoBehaviour {
     //public delegate void Saved();
     //public static event Saved OnSaved;
-    public AudioClip applause;
+    public AudioClip tutorial;
 
     Vector3 profPos;
     Vector3 profRot;
@@ -18,29 +18,42 @@ public class ProfessorScript : MonoBehaviour {
     public GameObject nitrogen;
     public GameObject nitrogenLid;
     public GameObject bucket;
+    public GameObject grill;
+    bool audioPlaying;
+    public static bool tutorialPlayed;
 
     void Awake()
     {
         source = GetComponent<AudioSource>();
-        profPos = gameObject.transform.position;
-        profRot = gameObject.transform.eulerAngles;
+        //profPos = gameObject.transform.position;
+        //profRot = gameObject.transform.eulerAngles;
+        tutorialPlayed = false;
+        audioPlaying = false;
     }
 
-    void OnCollisionStay(Collision col) {
-        if(col.gameObject == telt){
-            gameObject.transform.position = profPos;
-            gameObject.transform.position = profRot;
-        }
-    }
+   
+
+    //void OnCollisionStay(Collision col) {
+    //    if(col.gameObject == telt){
+    //        gameObject.transform.position = profPos;
+    //        gameObject.transform.position = profRot;
+    //    }
+    //}
 
     void OnTriggerExit(Collider col) {
         if (col.gameObject == telt) {
-            source.PlayOneShot(applause, 1F);
+            source.PlayOneShot(tutorial, 1F);
+            audioPlaying = true;
+        }
+    }
 
-            //if (OnSaved != null)
-            //     OnSaved();
-            //EventManager.TriggerEvent("OnSaved");
+    void FixedUpdate()
+    {
+        // Sjekk når professoren er ferdig å prate
+        if (!source.isPlaying && audioPlaying == true)
+        {
             OnSaved();
+            tutorialPlayed = true;
         }
     }
 
@@ -65,6 +78,9 @@ public class ProfessorScript : MonoBehaviour {
 
         Rigidbody nitrogenLidBody = nitrogenLid.AddComponent<Rigidbody>();
         nitrogenLidBody.mass = 1;
+
+        Rigidbody grillBody = grill.AddComponent<Rigidbody>();
+        grillBody.mass = 1;
     }
 
 }

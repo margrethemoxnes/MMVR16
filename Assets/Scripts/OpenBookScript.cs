@@ -33,10 +33,15 @@ public class OpenBookScript : MonoBehaviour {
         device = SteamVR_Controller.Input((int)trackedObj.index);
         if (device.GetTouchDown(SteamVR_Controller.ButtonMask.Trigger))
         {
-            OpenBook();
-            if (firstOpen == false) {
-                firstOpen = true;
-                source.PlayOneShot(fantBoken, 1F);
+            // Sjekk om tutorial er ferdig spilt
+            if (ProfessorScript.tutorialPlayed == false)
+            {
+                OpenBook();
+            
+                if (firstOpen == false) {
+                    firstOpen = true;
+                    source.PlayOneShot(fantBoken, 1F);
+                }
             }
         }
         
