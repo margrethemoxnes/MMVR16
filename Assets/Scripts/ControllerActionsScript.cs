@@ -12,11 +12,11 @@ public class ControllerActionsScript : MonoBehaviour {
     public GameObject H2O;
     public GameObject Bensin;
 
-    Vector3 NitrogenPos;
-    Vector3 CoPos;
-    Vector3 O2Pos;
-    Vector3 H2oPos;
-    Vector3 BensinPos;
+    //Vector3 NitrogenPos;
+    //Vector3 CoPos;
+    //Vector3 O2Pos;
+    //Vector3 H2oPos;
+    //Vector3 BensinPos;
 
     SteamVR_TrackedObject trackedObj;
     SteamVR_Controller.Device device;
@@ -89,11 +89,11 @@ public class ControllerActionsScript : MonoBehaviour {
     void Awake () {
         trackedObj = GetComponent<SteamVR_TrackedObject>();
         source = GetComponent<AudioSource>();
-        NitrogenPos = Nitrogen.transform.position;
-        CoPos = Co.transform.position;
-        O2Pos = O2.transform.position;
-        H2oPos = H2O.transform.position;
-        BensinPos = Bensin.transform.position;
+        //NitrogenPos = Nitrogen.transform.position;
+        //CoPos = Co.transform.position;
+        //O2Pos = O2.transform.position;
+        //H2oPos = H2O.transform.position;
+        //BensinPos = Bensin.transform.position;
 
         bensinRend = planes.bensin.GetComponent<Renderer>();
         vannRend = planes.vann.GetComponent<Renderer>();
@@ -117,7 +117,6 @@ public class ControllerActionsScript : MonoBehaviour {
                 if (CasesScripts.experiment != 1)
                 {
                     source.PlayOneShot(hvile, 1F);
-                    EnableOxygen();
                 }
                 else
                 {
@@ -143,6 +142,7 @@ public class ControllerActionsScript : MonoBehaviour {
                 {
                     if (professor.transform.position.y == 0) { 
                         Destroy(profBody);
+                        EnableOxygen();
                     }
                 }
             }
@@ -178,11 +178,11 @@ public class ControllerActionsScript : MonoBehaviour {
             tossObject(col.attachedRigidbody);
 
             // Plasser atomer og molekyler på opprinnelig plass
-            Nitrogen.transform.position = NitrogenPos;
-            H2O.transform.position = H2oPos;
-            Co.transform.position = CoPos;
-            Bensin.transform.position = BensinPos;
-            O2.transform.position = O2Pos;
+            //Nitrogen.transform.position = NitrogenPos;
+            //H2O.transform.position = H2oPos;
+            //Co.transform.position = CoPos;
+            //Bensin.transform.position = BensinPos;
+            //O2.transform.position = O2Pos;
         }
 
        

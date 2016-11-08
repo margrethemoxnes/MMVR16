@@ -18,9 +18,11 @@ public class BensinScript : MonoBehaviour {
     bool played;
 
     private AudioSource source;
+    private AudioSource source2;
 
     void Awake() {
         source = GetComponent<AudioSource>();
+        source2 = GetComponent<AudioSource>();
         played = false;
     }
 
@@ -50,7 +52,7 @@ public class BensinScript : MonoBehaviour {
     void OnExploded()
     {
         CasesScripts.ExperimentTwo = true;
-        source.PlayOneShot(eureka, 1F);
+        source2.PlayOneShot(eureka, 1F);
         if (CasesScripts.ExperimentThree == true)
         {
             CasesScripts.experiment = 4;

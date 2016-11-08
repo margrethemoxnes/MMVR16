@@ -19,7 +19,9 @@ public class ProfessorScript : MonoBehaviour {
     public GameObject nitrogenLid;
     public GameObject bucket;
     public GameObject grill;
+
     bool audioPlaying;
+
     public static bool tutorialPlayed;
 
     void Awake()
@@ -36,6 +38,7 @@ public class ProfessorScript : MonoBehaviour {
         if (col.gameObject == telt) {
             source.PlayOneShot(tutorial, 1F);
             audioPlaying = true;
+            OnSaved();
         }
     }
 
@@ -43,8 +46,7 @@ public class ProfessorScript : MonoBehaviour {
     {
         // Sjekk når professoren er ferdig å prate
         if (!source.isPlaying && audioPlaying == true)
-        {
-            OnSaved();
+        {            
             tutorialPlayed = true;
         }
     }
@@ -60,19 +62,14 @@ public class ProfessorScript : MonoBehaviour {
     void TurnOffStatic()
     {
         Rigidbody bensinBody = bensin.AddComponent<Rigidbody>();
-        bensinBody.mass = 10;
 
         Rigidbody bucketBody = bucket.AddComponent<Rigidbody>();
-        bucketBody.mass = 5;
-
+        
         Rigidbody nitrogenBody = nitrogen.AddComponent<Rigidbody>();
-        nitrogenBody.mass = 50;
 
         Rigidbody nitrogenLidBody = nitrogenLid.AddComponent<Rigidbody>();
-        nitrogenLidBody.mass = 1;
 
         Rigidbody grillBody = grill.AddComponent<Rigidbody>();
-        grillBody.mass = 1;
     }
 
 }
