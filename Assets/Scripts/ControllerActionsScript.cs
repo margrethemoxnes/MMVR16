@@ -12,12 +12,6 @@ public class ControllerActionsScript : MonoBehaviour {
     public GameObject H2O;
     public GameObject Bensin;
 
-    //Vector3 NitrogenPos;
-    //Vector3 CoPos;
-    //Vector3 O2Pos;
-    //Vector3 H2oPos;
-    //Vector3 BensinPos;
-
     SteamVR_TrackedObject trackedObj;
     SteamVR_Controller.Device device;
     private AudioSource source;
@@ -62,7 +56,7 @@ public class ControllerActionsScript : MonoBehaviour {
         public GameObject bensinkanne;
         public GameObject grill;
         public GameObject nitrogenlokk;
-        public GameObject bucket;
+        public GameObject lake;
     }
 
     
@@ -89,11 +83,6 @@ public class ControllerActionsScript : MonoBehaviour {
     void Awake () {
         trackedObj = GetComponent<SteamVR_TrackedObject>();
         source = GetComponent<AudioSource>();
-        //NitrogenPos = Nitrogen.transform.position;
-        //CoPos = Co.transform.position;
-        //O2Pos = O2.transform.position;
-        //H2oPos = H2O.transform.position;
-        //BensinPos = Bensin.transform.position;
 
         bensinRend = planes.bensin.GetComponent<Renderer>();
         vannRend = planes.vann.GetComponent<Renderer>();
@@ -142,30 +131,11 @@ public class ControllerActionsScript : MonoBehaviour {
                 {
                     if (professor.transform.position.y == 0) { 
                         Destroy(profBody);
-                        EnableOxygen();
                     }
+                    EnableOxygen();
                 }
             }
 
-            if(col.gameObject == objects.bensinkanne)
-            {
-                EnableFuel();
-            }
-
-            if (col.gameObject == objects.grill)
-            {
-                EnableCarbonmonokside();
-            }
-
-            if (col.gameObject == objects.bucket)
-            {
-                EnableWater();
-            }
-
-            if (col.gameObject == objects.nitrogenlokk)
-            {
-                EnableNitrogen();
-            }
 
             //if (col.gameObject == objects.)
             //{
@@ -176,13 +146,6 @@ public class ControllerActionsScript : MonoBehaviour {
             col.gameObject.transform.SetParent(null);
 
             tossObject(col.attachedRigidbody);
-
-            // Plasser atomer og molekyler på opprinnelig plass
-            //Nitrogen.transform.position = NitrogenPos;
-            //H2O.transform.position = H2oPos;
-            //Co.transform.position = CoPos;
-            //Bensin.transform.position = BensinPos;
-            //O2.transform.position = O2Pos;
         }
 
        
@@ -202,56 +165,73 @@ public class ControllerActionsScript : MonoBehaviour {
     }
 
     void EnableOxygen() {
-        molecules.o2.transform.localScale = new Vector3(5f, 5f, 5f);
+        molecules.o2.transform.localScale = new Vector3(2f, 2f, 2f);
         oksygenRend.enabled = true;
-        //if (oksygenPlayed == false)
-        //{
-        //    source.PlayOneShot(sounds.oksygen, 1F);
-        //    oksygenPlayed = true;
-        //}
     }
 
     void EnableCarbonmonokside()
-    {
-        molecules.co.transform.localScale = new Vector3(.5f, .5f, .5f);
-        coRend.enabled = true;
+    {   
         if (coPlayed == false)
         {
             source.PlayOneShot(sounds.co, 1F);
             coPlayed = true;
+            molecules.co.transform.localScale = new Vector3(.5f, .5f, .5f);
+            coRend.enabled = true;
         }
     }
 
     void EnableWater() {
-        if(BucketScript.waterInBucket == true) { 
-            molecules.h2o.transform.localScale = new Vector3(2f,2f,2f);
-            vannRend.enabled = true;
-            if (vannPlayed == false)
+        if(BucketScript.waterInBucket == true && vannPlayed == false)
             {
                 source.PlayOneShot(sounds.vann, 1F);
                 vannPlayed = true;
+                molecules.h2o.transform.localScale = new Vector3(2f, 2f, 2f);
+                vannRend.enabled = true;
             }
-        }
     }
 
-    void EnableNitrogen() {
-        molecules.n.transform.localScale = new Vector3(.01f, .01f, .01f);
-        nitrogenRend.enabled = true;
+    void EnableNitrogen() {      
         if (nitrogenPlayed == false)
         {
             source.PlayOneShot(sounds.nitrogen, 1F);
             nitrogenPlayed = true;
+            molecules.n.transform.localScale = new Vector3(.01f, .01f, .01f);
+            nitrogenRend.enabled = true;
         }
     }
 
     void EnableFuel()
-    {
-        molecules.b8h18.transform.localScale = new Vector3(.002f, .002f, .002f);
-        bensinRend.enabled = true;
+    {      
         if (bensinPlayed == false)
         {
             source.PlayOneShot(sounds.fuel, 1F);
             bensinPlayed = true;
+            molecules.b8h18.transform.localScale = new Vector3(.002f, .002f, .002f);
+            bensinRend.enabled = true;
         }
+    }
+
+    void OnTriggerEnter(Collider col)
+    {
+        if (col.gameObject == objects.bensinkanne)
+        {
+            EnableFuel();
+        }
+
+        if (col.gameObject == objects.grill)
+        {
+            EnableCarbonmonokside();
+        }
+
+        if (col.gameObject == objects.lake)
+        {
+            EnableWater();
+        }
+
+        if (col.gameObject == objects.nitrogenlokk)
+        {
+            EnableNitrogen();
+        }
+
     }
 }

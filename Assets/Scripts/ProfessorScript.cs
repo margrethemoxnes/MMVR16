@@ -36,9 +36,11 @@ public class ProfessorScript : MonoBehaviour {
 
     void OnTriggerExit(Collider col) {
         if (col.gameObject == telt) {
-            source.PlayOneShot(tutorial, 1F);
-            audioPlaying = true;
-            OnSaved();
+            if(audioPlaying == false) {
+                audioPlaying = true;
+                source.PlayOneShot(tutorial, 1F);
+                OnSaved();
+            }
         }
     }
 
@@ -54,8 +56,9 @@ public class ProfessorScript : MonoBehaviour {
     void OnSaved()
     {
         CasesScripts.experiment = 2;
-        CasesScripts.ExperimentOne = true;
-        DisplayHintsScript.startTime = Time.time;
+        if(tutorialPlayed == true) {
+            CasesScripts.ExperimentOne = true;
+        }
         TurnOffStatic();
     }
 
@@ -64,7 +67,7 @@ public class ProfessorScript : MonoBehaviour {
         Rigidbody bensinBody = bensin.AddComponent<Rigidbody>();
 
         Rigidbody bucketBody = bucket.AddComponent<Rigidbody>();
-        
+
         Rigidbody nitrogenBody = nitrogen.AddComponent<Rigidbody>();
 
         Rigidbody nitrogenLidBody = nitrogenLid.AddComponent<Rigidbody>();

@@ -34,7 +34,7 @@ public class OpenBookScript : MonoBehaviour {
         if (device.GetTouchDown(SteamVR_Controller.ButtonMask.Trigger))
         {
             // Sjekk om tutorial er ferdig spilt
-            if (ProfessorScript.tutorialPlayed == false)
+            if (ProfessorScript.tutorialPlayed == true)
             {
                 OpenBook();
             

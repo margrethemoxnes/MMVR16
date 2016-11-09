@@ -24,7 +24,7 @@ public class BaljeScript : MonoBehaviour {
         source = GetComponent<AudioSource>();
     }
 
-    void OnCollisionEnter(Collision col)
+    void OnTriggerEnter(Collider col)
     {
         if (col.gameObject == nitrogen) {
             source.PlayOneShot(nitrogenInContainer, 1F);

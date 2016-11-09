@@ -10,9 +10,6 @@ public class BucketScript : MonoBehaviour {
     public static bool boiled;
     private Renderer rend;
     public GameObject bucketWater;
-    //float bucketX;
-    //float bucketY;
-    //float bucketZ;
 
     private AudioSource source;
     public AudioClip vannetErKokt;
@@ -22,22 +19,19 @@ public class BucketScript : MonoBehaviour {
         boiled = false;
         waterInBucket = false;
         rend = bucketWater.GetComponent<Renderer>();
-        //bucketX = gameObject.transform.position.x;
-        //bucketY = gameObject.transform.position.y;
-        //bucketZ = gameObject.transform.position.z;
         source = GetComponent<AudioSource>();
     }
-    void OnCollisionEnter(Collision col)
+    void OnTriggerStay(Collider col)
     {
         if (col.gameObject == lake)
         {
-            
-                waterInBucket = true;
-                rend.enabled = true;
-                degrees.text = "2°C";
-            
+            waterInBucket = true;
+            rend.enabled = true;
+            degrees.text = "2°C";
         }
- 
+    }
+
+    void OnCollisionEnter(Collision col) { 
         if (col.gameObject == campfire)
         {
             if (waterInBucket == true)

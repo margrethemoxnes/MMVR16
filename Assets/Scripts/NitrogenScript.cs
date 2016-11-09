@@ -24,10 +24,11 @@ public class NitrogenScript : MonoBehaviour {
         if (col.gameObject == lid)
         {
             //Spill av lyd om nitrogen åpen.
-            source.PlayOneShot(nitrogenIsOpen, 1F);
-            nitrogenOpen = true;
-            Instantiate(nitrogenGasContainer, new Vector3(nitrogenX, 10.624f, nitrogenZ), Quaternion.identity);
-           
+            if (nitrogenOpen == false) {
+                source.PlayOneShot(nitrogenIsOpen, 1F);
+                nitrogenOpen = true;
+                Instantiate(nitrogenGasContainer, new Vector3(nitrogenX, 10.624f, nitrogenZ), Quaternion.identity);
+            }
         }
     }
 

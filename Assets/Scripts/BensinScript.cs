@@ -18,11 +18,9 @@ public class BensinScript : MonoBehaviour {
     bool played;
 
     private AudioSource source;
-    private AudioSource source2;
 
     void Awake() {
         source = GetComponent<AudioSource>();
-        source2 = GetComponent<AudioSource>();
         played = false;
     }
 
@@ -32,6 +30,8 @@ public class BensinScript : MonoBehaviour {
         if (col.gameObject == campfire)
         {
             source.PlayOneShot(boomSound, 1F);
+            source.PlayDelayed(1f);
+            source.PlayOneShot(eureka, 1F);
             if (source.isPlaying)
             {
                 Instantiate(explosion, transform.position, Quaternion.identity);
@@ -52,7 +52,7 @@ public class BensinScript : MonoBehaviour {
     void OnExploded()
     {
         CasesScripts.ExperimentTwo = true;
-        source2.PlayOneShot(eureka, 1F);
+        
         if (CasesScripts.ExperimentThree == true)
         {
             CasesScripts.experiment = 4;

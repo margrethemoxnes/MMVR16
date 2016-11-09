@@ -15,11 +15,7 @@ public class LakeScript : MonoBehaviour {
 
     private AudioSource source;
 
-    //public TextMesh eureka;
-
-    float nitrogenX;
-    float nitrogenZ;
-    float lakeY;
+    public GameObject controller;
 
     void Awake() {
         source = GetComponent<AudioSource>();
@@ -27,35 +23,28 @@ public class LakeScript : MonoBehaviour {
        
     }
  
-    void OnCollisionStay(Collision col) {
+    void OnTriggerStay(Collider col) {
         if (col.gameObject == nitrogen) {
             if (NitrogenScript.nitrogenOpen == true)
             {
-                nitrogenX = col.gameObject.transform.position.x;
-                nitrogenZ = col.gameObject.transform.position.z;
-                lakeY = col.gameObject.transform.position.y;
-                //eureka.text = "Kollisjon. Og lokket er av.";
-                Instantiate(NitrogenGasInWater, new Vector3(nitrogenX, lakeY, nitrogenZ), Quaternion.identity);
+                Instantiate(NitrogenGasInWater, new Vector3(303.68f, 10.03f, controller.transform.position.z), Quaternion.identity);
                 //if (OnSmallSmoke != null)
                 //    OnSmallSmoke();
                 //EventManager.TriggerEvent("OnSmallSmoke");
             }
-
         }
     }
 
-    void OnCollisionEnter(Collision col) {
+    void OnTriggerEnter(Collider col) {
         if (col.gameObject == nitrogen) {
-            if(audioPlayed == false) { 
                 if (NitrogenScript.nitrogenOpen == true)
                 {
-                    source.PlayOneShot(applause, 1F);
-                    audioPlayed = true;
                     OnSmallSmoke();
-                }
-                else {
-                    //eureka.text = "Kollisjon. Men lokket er på.";
-                }
+                    if (audioPlayed == false)
+                    {
+                        source.PlayOneShot(applause, 1F);
+                        audioPlayed = true;
+                    }
             }
         }
     }
@@ -65,7 +54,6 @@ public class LakeScript : MonoBehaviour {
         CasesScripts.ExperimentThree = true;
         DisplayHintsScript.hintDisplayed = false;
         DisplayHintsScript.startTime = Time.time;
-        //Spill av fullført eksperiment lyd
 
         if (CasesScripts.ExperimentTwo != true)
         {

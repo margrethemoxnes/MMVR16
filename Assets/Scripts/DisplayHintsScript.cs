@@ -23,32 +23,32 @@ public class DisplayHintsScript : MonoBehaviour {
 	
 	void FixedUpdate () {
         if(CasesScripts.ExperimentFour == false && CasesScripts.ExperimentOne == true) {
-            elapsedTime = Time.time - startTime;
-            if (elapsedTime > hintTime)
-            {
-                DisplayHints();
-            }
+            DisplayHints();
         }
     }
 
-    void DisplayHints() { 
-        if (hintDisplayed == false && ProfessorScript.tutorialPlayed == true)
+    void DisplayHints() {
+        elapsedTime = Time.time - startTime;
+        if (elapsedTime > hintTime)
         {
-            hintDisplayed = true;
-            source.PlayOneShot(hintAvailable, 1F);
-            Debug.Log("hintTime:" + hintTime);
-            //Aktiver materialet utifra aktivt experiment
-            switch (CasesScripts.experiment)
+            if (hintDisplayed == false)
             {
-                case 2:
-                    rend.material = experiment2;
-                    break;
-                case 3:
-                    rend.material = experiment3;
-                    break;
-                case 4:
-                    rend.material = experiment4;
-                    break;
+                hintDisplayed = true;
+                source.PlayOneShot(hintAvailable, 1F);
+                Debug.Log("hintTime:" + hintTime);
+                //Aktiver materialet utifra aktivt experiment
+                switch (CasesScripts.experiment)
+                {
+                    case 2:
+                        rend.material = experiment2;
+                        break;
+                    case 3:
+                        rend.material = experiment3;
+                        break;
+                    case 4:
+                        rend.material = experiment4;
+                        break;
+                }
             }
         }
     }
