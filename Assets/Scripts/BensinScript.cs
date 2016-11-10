@@ -8,11 +8,9 @@ public class BensinScript : MonoBehaviour {
     //public delegate void Exploded();
     //public static event Exploded OnExploded;
 
-    public GameObject campfire;
+    public GameObject bensin;
     public GameObject explosion;
     public AudioClip boomSound;
-    public AudioClip eureka;
-    //public TextMesh eureka;
     
 
     bool played;
@@ -27,11 +25,9 @@ public class BensinScript : MonoBehaviour {
     void OnCollisionEnter(Collision col)
     {
         // Sjekk om bensinkanna er på bålet 
-        if (col.gameObject == campfire)
+        if (col.gameObject == bensin)
         {
             source.PlayOneShot(boomSound, 1F);
-            source.PlayDelayed(1f);
-            source.PlayOneShot(eureka, 1F);
             if (source.isPlaying)
             {
                 Instantiate(explosion, transform.position, Quaternion.identity);
@@ -40,7 +36,7 @@ public class BensinScript : MonoBehaviour {
             }
             if(played == true)
             {
-                Destroy(this.gameObject);
+                Destroy(bensin.gameObject);
             }
             //if (OnExploded != null)
             //    OnExploded();

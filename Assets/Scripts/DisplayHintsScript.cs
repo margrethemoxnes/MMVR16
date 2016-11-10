@@ -22,7 +22,7 @@ public class DisplayHintsScript : MonoBehaviour {
     }
 	
 	void FixedUpdate () {
-        if(CasesScripts.ExperimentFour == false && CasesScripts.ExperimentOne == true) {
+        if(CasesScripts.ExperimentFour == false && CasesScripts.ExperimentOne == true) { 
             DisplayHints();
         }
     }

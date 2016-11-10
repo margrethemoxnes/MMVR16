@@ -23,28 +23,18 @@ public class LakeScript : MonoBehaviour {
        
     }
  
-    void OnTriggerStay(Collider col) {
-        if (col.gameObject == nitrogen) {
-            if (NitrogenScript.nitrogenOpen == true)
-            {
-                Instantiate(NitrogenGasInWater, new Vector3(303.68f, 10.03f, controller.transform.position.z), Quaternion.identity);
-                //if (OnSmallSmoke != null)
-                //    OnSmallSmoke();
-                //EventManager.TriggerEvent("OnSmallSmoke");
-            }
-        }
-    }
 
     void OnTriggerEnter(Collider col) {
         if (col.gameObject == nitrogen) {
                 if (NitrogenScript.nitrogenOpen == true)
                 {
-                    OnSmallSmoke();
+                    Instantiate(NitrogenGasInWater, new Vector3(303.68f, 10.03f, controller.transform.position.z), Quaternion.identity);
                     if (audioPlayed == false)
                     {
                         source.PlayOneShot(applause, 1F);
                         audioPlayed = true;
-                    }
+                        OnSmallSmoke();
+                }
             }
         }
     }

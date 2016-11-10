@@ -56,7 +56,7 @@ public class ControllerActionsScript : MonoBehaviour {
         public GameObject bensinkanne;
         public GameObject grill;
         public GameObject nitrogenlokk;
-        public GameObject lake;
+        public GameObject bucket;
     }
 
     
@@ -89,6 +89,7 @@ public class ControllerActionsScript : MonoBehaviour {
         coRend = planes.karbonmonoksid.GetComponent<Renderer>();
         nitrogenRend = planes.nitrogen.GetComponent<Renderer>();
         oksygenRend = planes.oksygen.GetComponent<Renderer>();
+        vannPlayed = false;
     }
 	
 	// Update is called once per frame
@@ -123,24 +124,6 @@ public class ControllerActionsScript : MonoBehaviour {
 
         if (device.GetTouchUp(SteamVR_Controller.ButtonMask.Trigger))
         {
-            if (col.gameObject == professor)
-            {
-                Rigidbody profBody = col.gameObject.GetComponent<Rigidbody>();
-
-                if (CasesScripts.ExperimentOne == true)
-                {
-                    if (professor.transform.position.y == 0) { 
-                        Destroy(profBody);
-                    }
-                    EnableOxygen();
-                }
-            }
-
-
-            //if (col.gameObject == objects.)
-            //{
-            //    EnableOxygen();
-            //}
 
             col.attachedRigidbody.isKinematic = false;
             col.gameObject.transform.SetParent(null);
@@ -181,13 +164,15 @@ public class ControllerActionsScript : MonoBehaviour {
     }
 
     void EnableWater() {
-        if(BucketScript.waterInBucket == true && vannPlayed == false)
+        if(BucketScript.waterInBucket == true)
             {
+            if (vannPlayed == false) { 
                 source.PlayOneShot(sounds.vann, 1F);
                 vannPlayed = true;
                 molecules.h2o.transform.localScale = new Vector3(2f, 2f, 2f);
                 vannRend.enabled = true;
             }
+        }
     }
 
     void EnableNitrogen() {      
@@ -213,24 +198,21 @@ public class ControllerActionsScript : MonoBehaviour {
 
     void OnTriggerEnter(Collider col)
     {
-        if (col.gameObject == objects.bensinkanne)
-        {
-            EnableFuel();
-        }
+        if(ProfessorScript.tutorialPlayed == true) { 
+            if (col.gameObject == objects.bensinkanne)
+            {
+                EnableFuel();
+            }
 
-        if (col.gameObject == objects.grill)
-        {
-            EnableCarbonmonokside();
-        }
+            if (col.gameObject == objects.grill)
+            {
+                EnableCarbonmonokside();
+            }
 
-        if (col.gameObject == objects.lake)
-        {
-            EnableWater();
-        }
-
-        if (col.gameObject == objects.nitrogenlokk)
-        {
-            EnableNitrogen();
+            if (col.gameObject == objects.nitrogenlokk)
+            {
+                EnableNitrogen();
+            }
         }
 
     }

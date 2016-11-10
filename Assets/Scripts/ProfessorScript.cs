@@ -20,6 +20,11 @@ public class ProfessorScript : MonoBehaviour {
     public GameObject bucket;
     public GameObject grill;
 
+    Rigidbody profBody;
+    public GameObject O2;
+    private Renderer oksygenRend;
+    public GameObject oksygen;
+
     bool audioPlaying;
 
     public static bool tutorialPlayed;
@@ -29,12 +34,18 @@ public class ProfessorScript : MonoBehaviour {
         source = GetComponent<AudioSource>();
         tutorialPlayed = false;
         audioPlaying = false;
+        profBody = gameObject.GetComponent<Rigidbody>();
+        oksygenRend = oksygen.GetComponent<Renderer>();
+    }
+
+    void EnableOxygen()
+    {
+        O2.transform.localScale = new Vector3(2f, 2f, 2f);
+        oksygenRend.enabled = true;
     }
 
 
-    
-
-    void OnTriggerExit(Collider col) {
+    void OnTriggerEnter(Collider col) {
         if (col.gameObject == telt) {
             if(audioPlaying == false) {
                 audioPlaying = true;
@@ -50,16 +61,18 @@ public class ProfessorScript : MonoBehaviour {
         if (!source.isPlaying && audioPlaying == true)
         {            
             tutorialPlayed = true;
+            DisplayHintsScript.startTime = Time.time;
+            CasesScripts.ExperimentOne = true;
         }
     }
 
     void OnSaved()
     {
         CasesScripts.experiment = 2;
-        if(tutorialPlayed == true) {
-            CasesScripts.ExperimentOne = true;
-        }
+        Destroy(profBody);
         TurnOffStatic();
+        EnableOxygen();
+        gameObject.transform.SetParent(null);
     }
 
     void TurnOffStatic()

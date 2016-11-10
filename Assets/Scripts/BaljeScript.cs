@@ -27,9 +27,11 @@ public class BaljeScript : MonoBehaviour {
     void OnTriggerEnter(Collider col)
     {
         if (col.gameObject == nitrogen) {
-            source.PlayOneShot(nitrogenInContainer, 1F);
+            if(nitrogenInBox == false) { 
+                source.PlayOneShot(nitrogenInContainer, 1F);
                 nitrogenInBox = true;
-                Instantiate(nitrogenSmokeInBox, transform.position, Quaternion.identity);
+            }
+            Instantiate(nitrogenSmokeInBox, transform.position, Quaternion.identity);
         }
 
         if (col.gameObject == bucket) {
@@ -59,14 +61,14 @@ public class BaljeScript : MonoBehaviour {
     void OnPoofed()
     {
         //throw new System.NotImplementedException();
-        CasesScripts.ExperimentFour = true;
-        source.PlayOneShot(eureka, 1F);
-
+        if(CasesScripts.ExperimentFour == false) { 
+            CasesScripts.ExperimentFour = true;
+            source.PlayOneShot(eureka, 1F);
+        }
         //Sjekk om alle eksperimenter er utført.
         if (CasesScripts.ExperimentThree != true)
         {
             CasesScripts.experiment = 3;
-            //eureka.text = CasesScripts.experiment.ToString();
             Debug.Log("Experiment " + CasesScripts.experiment);
             DisplayHintsScript.hintDisplayed = false;
             DisplayHintsScript.startTime = Time.time;
@@ -80,8 +82,7 @@ public class BaljeScript : MonoBehaviour {
         }
         else
         {
-         //   eureka.text = "Finished!";
+         
         }
     }
-
 }
