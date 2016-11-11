@@ -42,7 +42,7 @@ public class BaljeScript : MonoBehaviour {
                 {
                     //Spill av POOF
                     //eureka.text = "POOF";
-                    Instantiate(hugeNitrogenSmokeInBox, transform.position, Quaternion.identity);
+                    Instantiate(hugeNitrogenSmokeInBox, transform.position, Quaternion.Euler(new Vector3(-90, 0, 0)));
                     //if (OnPoofed != null)
                     //    OnPoofed();
                     //EventManager.TriggerEvent("OnPoofed");

@@ -51,6 +51,7 @@ public class ProfessorScript : MonoBehaviour {
                 audioPlaying = true;
                 source.PlayOneShot(tutorial, 1F);
                 OnSaved();
+                TurnOffStatic();
             }
         }
     }
@@ -59,9 +60,9 @@ public class ProfessorScript : MonoBehaviour {
     {
         // Sjekk når professoren er ferdig å prate
         if (!source.isPlaying && audioPlaying == true)
-        {            
+        {
+            // Activate button triggers and hits     
             tutorialPlayed = true;
-            DisplayHintsScript.startTime = Time.time;
             CasesScripts.ExperimentOne = true;
         }
     }
@@ -70,22 +71,23 @@ public class ProfessorScript : MonoBehaviour {
     {
         CasesScripts.experiment = 2;
         Destroy(profBody);
-        TurnOffStatic();
         EnableOxygen();
+        // Drop professor once TriggerEnter is executed
         gameObject.transform.SetParent(null);
+        
     }
 
     void TurnOffStatic()
     {
-        Rigidbody bensinBody = bensin.AddComponent<Rigidbody>();
+        bensin.AddComponent<Rigidbody>();
 
-        Rigidbody bucketBody = bucket.AddComponent<Rigidbody>();
+        bucket.AddComponent<Rigidbody>();
 
-        Rigidbody nitrogenBody = nitrogen.AddComponent<Rigidbody>();
+        nitrogen.AddComponent<Rigidbody>();
 
-        Rigidbody nitrogenLidBody = nitrogenLid.AddComponent<Rigidbody>();
+        nitrogenLid.AddComponent<Rigidbody>();
 
-        Rigidbody grillBody = grill.AddComponent<Rigidbody>();
+        grill.AddComponent<Rigidbody>();
     }
 
 }

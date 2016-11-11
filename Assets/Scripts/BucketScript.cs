@@ -18,7 +18,7 @@ public class BucketScript : MonoBehaviour {
     private Renderer vannRend;
     public GameObject planeVann;
     public AudioClip vann;
-    bool vannPlayed;
+    public static bool vannPlayed;
 
     void Awake()
     {
@@ -64,6 +64,8 @@ public class BucketScript : MonoBehaviour {
                 vannPlayed = true;
                 h2o.transform.localScale = new Vector3(2f, 2f, 2f);
                 vannRend.enabled = true;
+                DisplayHintsScript.hintDisplayed = false;
+                DisplayHintsScript.startTime = Time.time;
             }
         }
     }

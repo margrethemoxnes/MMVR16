@@ -15,8 +15,8 @@ public class DisplayHintsScript : MonoBehaviour {
     private Renderer rend;
     
     void Awake () {
-        hintDisplayed = false;
-        hintTime = 30;
+        hintDisplayed = true;
+        hintTime = 60;
         source = GetComponent<AudioSource>();
         rend = GetComponent<Renderer>();
     }
@@ -34,19 +34,29 @@ public class DisplayHintsScript : MonoBehaviour {
             if (hintDisplayed == false)
             {
                 hintDisplayed = true;
-                source.PlayOneShot(hintAvailable, 1F);
-                Debug.Log("hintTime:" + hintTime);
+                
+               
                 //Aktiver materialet utifra aktivt experiment
                 switch (CasesScripts.experiment)
                 {
                     case 2:
-                        rend.material = experiment2;
+                        if (ControllerActionsScript.bensinPlayed == true) {
+                            source.PlayOneShot(hintAvailable, 1F);
+                            rend.material = experiment2;
+                        }
                         break;
                     case 3:
-                        rend.material = experiment3;
+                        if(BucketScript.vannPlayed == true) {
+                            source.PlayOneShot(hintAvailable, 1F);
+                            rend.material = experiment3;
+                        }
                         break;
                     case 4:
-                        rend.material = experiment4;
+                        if (ControllerActionsScript.nitrogenPlayed == true)
+                        {
+                            source.PlayOneShot(hintAvailable, 1F);
+                            rend.material = experiment4;
+                        }
                         break;
                 }
             }

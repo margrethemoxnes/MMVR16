@@ -68,10 +68,10 @@ public class ControllerActionsScript : MonoBehaviour {
     private Renderer oksygenRend;
 
     // played bools
-    bool bensinPlayed;
+    public static bool bensinPlayed;
     bool vannPlayed;
     bool coPlayed;
-    bool nitrogenPlayed;
+    public static bool nitrogenPlayed;
     bool oksygenPlayed;
 
     public InfoGameObjects planes;
@@ -182,6 +182,8 @@ public class ControllerActionsScript : MonoBehaviour {
             nitrogenPlayed = true;
             molecules.n.transform.localScale = new Vector3(.01f, .01f, .01f);
             nitrogenRend.enabled = true;
+            DisplayHintsScript.hintDisplayed = false;
+            DisplayHintsScript.startTime = Time.time;
         }
     }
 
@@ -193,6 +195,8 @@ public class ControllerActionsScript : MonoBehaviour {
             bensinPlayed = true;
             molecules.b8h18.transform.localScale = new Vector3(.002f, .002f, .002f);
             bensinRend.enabled = true;
+            DisplayHintsScript.hintDisplayed = false;
+            DisplayHintsScript.startTime = Time.time;
         }
     }
 
