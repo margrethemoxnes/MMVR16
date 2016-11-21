@@ -46,13 +46,13 @@ public class DisplayHintsScript : MonoBehaviour {
                         }
                         break;
                     case 3:
-                        if(BucketScript.vannPlayed == true) {
+                        if(ControllerActionsScript.nitrogenPlayed == true) {
                             source.PlayOneShot(hintAvailable, 1F);
                             rend.material = experiment3;
                         }
                         break;
                     case 4:
-                        if (ControllerActionsScript.nitrogenPlayed == true)
+                        if (BucketScript.vannPlayed == true)
                         {
                             source.PlayOneShot(hintAvailable, 1F);
                             rend.material = experiment4;

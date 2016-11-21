@@ -40,7 +40,7 @@ public class ProfessorScript : MonoBehaviour {
 
     void EnableOxygen()
     {
-        O2.transform.localScale = new Vector3(2f, 2f, 2f);
+        O2.transform.localScale = new Vector3(.2f, .2f, .2f);
         oksygenRend.enabled = true;
     }
 
