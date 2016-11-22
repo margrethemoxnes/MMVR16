@@ -22,7 +22,7 @@ public class BensinScript : MonoBehaviour {
         played = false;
     }
 
-    void OnCollisionEnter(Collision col)
+    void OnTriggerEnter(Collider col)
     {
         // Sjekk om bensinkanna er på bålet 
         if (col.gameObject == bensin)

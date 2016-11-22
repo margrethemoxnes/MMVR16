@@ -38,9 +38,9 @@ public class BucketScript : MonoBehaviour {
             degrees.text = "2°C";
             EnableWater();
         }
-    }
+    //}
 
-    void OnCollisionEnter(Collision col) { 
+    //void OnCollisionEnter(Collision col) { 
         if (col.gameObject == campfire)
         {
             if (boiled == false) { 
