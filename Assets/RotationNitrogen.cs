@@ -5,6 +5,6 @@ public class RotationNitrogen : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-        gameObject.transform.Rotate(Vector3.right, 1f);
+        gameObject.transform.Rotate(Vector3.right, .5f);
     }
 }

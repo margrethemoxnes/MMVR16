@@ -13,6 +13,6 @@ public class Rotation : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () {
         y++;
-        gameObject.transform.Rotate(Vector3.up, 1f);
+        gameObject.transform.Rotate(Vector3.up, .5f);
 	}
 }
