@@ -120,7 +120,6 @@ public class ControllerActionsScript : MonoBehaviour {
 
         if (device.GetTouchUp(SteamVR_Controller.ButtonMask.Trigger))
         {
-
             col.attachedRigidbody.isKinematic = false;
             col.gameObject.transform.SetParent(null);
 
