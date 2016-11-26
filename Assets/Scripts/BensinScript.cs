@@ -10,6 +10,7 @@ public class BensinScript : MonoBehaviour {
 
     public GameObject bensin;
     public GameObject explosion;
+    public GameObject explosion2;
     public AudioClip boomSound;
     
 
@@ -31,6 +32,7 @@ public class BensinScript : MonoBehaviour {
             if (source.isPlaying)
             {
                 Instantiate(explosion, transform.position, Quaternion.identity);
+                Instantiate(explosion2, transform.position, Quaternion.identity);
                 OnExploded();
                 played = true;
             }
