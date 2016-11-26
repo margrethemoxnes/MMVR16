@@ -20,6 +20,13 @@ public class BucketScript : MonoBehaviour {
     public AudioClip vann;
     public static bool vannPlayed;
 
+    public GameObject book;
+    Renderer LeftPageRender;
+    public Material experiment3;
+    public Material experiment1_3;
+    public Material experiment2_3;
+    public Material experiment1_2_3;
+
     bool scriptOff;
     ControllerActionsScript script;
     DisplayHintsScript hint;
@@ -103,21 +110,27 @@ public class BucketScript : MonoBehaviour {
 
         if (CasesScripts.ExperimentTwo == true)
         {
-            if(CasesScripts.ExperimentThree == true)
+            if (CasesScripts.ExperimentThree == true)
             {
                 CasesScripts.experiment = 5;
                 //Oppdater eksperimentliste-materiale i boka
+                DisplayExperiments.experimentsDone = 9;
             }
             else
             {
                 CasesScripts.experiment = 3;
                 //Oppdater eksperimentliste-materiale i boka
+                DisplayExperiments.experimentsDone = 6;
             }
+        }
+        else if (CasesScripts.ExperimentThree == true) {
+            DisplayExperiments.experimentsDone = 7;
         }
         else
         {
             CasesScripts.experiment = 2;
             //Oppdater eksperimentliste-materiale i boka
+            DisplayExperiments.experimentsDone = 3;
         }
     }
 }

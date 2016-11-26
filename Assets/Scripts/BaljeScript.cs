@@ -90,17 +90,23 @@ public class BaljeScript : MonoBehaviour {
                 //Alle eksperimentene er ferdig
                 CasesScripts.experiment = 6;
                 //Oppdater eksperimentliste-materiale i boka
+                DisplayExperiments.experimentsDone = 12;
             }
             else
             {
                 CasesScripts.experiment = 3;
                 //Oppdater eksperimentliste-materiale i boka
+                DisplayExperiments.experimentsDone = 11;
             }
+        }
+        else if (CasesScripts.ExperimentThree == true) {
+            DisplayExperiments.experimentsDone = 10;
         }
         else
         {
             CasesScripts.experiment = 2;
             //Oppdater eksperimentliste-materiale i boka
+            DisplayExperiments.experimentsDone = 8;
         }
 
     }

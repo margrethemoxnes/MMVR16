@@ -12,7 +12,6 @@ public class BensinScript : MonoBehaviour {
     public GameObject explosion;
     public GameObject explosion2;
     public AudioClip boomSound;
-    
 
     bool played;
 
@@ -25,6 +24,7 @@ public class BensinScript : MonoBehaviour {
 
     void Awake() {
         source = GetComponent<AudioSource>();
+       
         played = false;
 
         // Sjekk om lyd spilles. Dersom lyd spilles, deaktiver ControllerActionScript. Hindre bruker i å plukke opp noe.
@@ -72,27 +72,45 @@ public class BensinScript : MonoBehaviour {
     void OnExploded()
     {
         CasesScripts.ExperimentTwo = true;
-
+        
         DisplayHintsScript.hintDisplayed = false;
         DisplayHintsScript.startTime = Time.time;
 
         if (CasesScripts.ExperimentThree == true)
         {
+
             if (CasesScripts.ExperimentFour == true)
             {
                 CasesScripts.experiment = 5;
-                //Oppdater eksperimentliste-materiale i boka
+                DisplayExperiments.experimentsDone = 9;
             }
             else
             {
                 CasesScripts.experiment = 4;
-                //Oppdater eksperimentliste-materiale i boka
+                DisplayExperiments.experimentsDone = 5;
             }
         }
+
+        else if (CasesScripts.ExperimentFour == true)
+        {
+            DisplayExperiments.experimentsDone = 6;
+            if (CasesScripts.ExperimentFive == true)
+            {
+                DisplayExperiments.experimentsDone = 11;
+            }
+            else if (CasesScripts.ExperimentThree == true) {
+                DisplayExperiments.experimentsDone = 12;
+            }
+            else
+            {
+                DisplayExperiments.experimentsDone = 6;
+            }
+        }
+
         else
         {
             CasesScripts.experiment = 3;
-            //Oppdater eksperimentliste-materiale i boka
+            DisplayExperiments.experimentsDone = 1;
         }
     }
     

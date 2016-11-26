@@ -17,10 +17,10 @@ public class LakeScript : MonoBehaviour {
 
     public GameObject controller;
 
+
     void Awake() {
         source = GetComponent<AudioSource>();
         audioPlayed = false;
-       
     }
  
 
@@ -50,19 +50,35 @@ public class LakeScript : MonoBehaviour {
         {
             if (CasesScripts.ExperimentFour == true)
             {
+                if (CasesScripts.ExperimentFive == true)
+                {
+                    DisplayExperiments.experimentsDone = 12;
+                }
+                else
+                {
+                    DisplayExperiments.experimentsDone = 7;
+                }
+
                 CasesScripts.experiment = 5;
-                //Oppdater eksperimentliste-materiale i boka
+                DisplayExperiments.experimentsDone = 9;
+
             }
             else
             {
                 CasesScripts.experiment = 4;
-                //Oppdater eksperimentliste-materiale i boka
+                DisplayExperiments.experimentsDone = 5;
+            }
+        }
+        else if (CasesScripts.ExperimentFour == true) {
+            DisplayExperiments.experimentsDone = 7;
+            if (CasesScripts.ExperimentFive == true) {
+                DisplayExperiments.experimentsDone = 10;
             }
         }
         else
         {
             CasesScripts.experiment = 2;
-            //Oppdater eksperimentliste-materiale i boka
+            DisplayExperiments.experimentsDone = 2;
         }
     }
 }
