@@ -41,20 +41,28 @@ public class LakeScript : MonoBehaviour {
 
     void OnSmallSmoke()
     {
+
         CasesScripts.ExperimentThree = true;
         DisplayHintsScript.hintDisplayed = false;
         DisplayHintsScript.startTime = Time.time;
 
-        if (CasesScripts.ExperimentTwo != true)
+        if (CasesScripts.ExperimentTwo == true)
+        {
+            if (CasesScripts.ExperimentFour == true)
+            {
+                CasesScripts.experiment = 5;
+                //Oppdater eksperimentliste-materiale i boka
+            }
+            else
+            {
+                CasesScripts.experiment = 4;
+                //Oppdater eksperimentliste-materiale i boka
+            }
+        }
+        else
         {
             CasesScripts.experiment = 2;
-            Debug.Log("Experiment " + CasesScripts.experiment);
+            //Oppdater eksperimentliste-materiale i boka
         }
-        else {
-            CasesScripts.experiment = 4;
-            Debug.Log("Experiment " + CasesScripts.experiment);
-        }
-
-        Debug.Log("Experiment " + CasesScripts.experiment);
     }
 }

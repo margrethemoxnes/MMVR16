@@ -10,13 +10,14 @@ public class CasesScripts : MonoBehaviour {
     public static bool ExperimentTwo;
     public static bool ExperimentThree;
     public static bool ExperimentFour;
+    public static bool ExperimentFive;
 
     //private UnityAction onSaved;
     //private UnityAction onExploded;
     //private UnityAction onSmallGas;
     //private UnityAction onPoofed;
 
-   
+
 
     //void ProfessorScript_OnSaved()
     //{
@@ -80,6 +81,7 @@ public class CasesScripts : MonoBehaviour {
         ExperimentTwo = false;
         ExperimentThree = false;
         ExperimentFour = false;
+        ExperimentFive = false;
         //onSaved = new UnityAction(OnSaved);
         //onExploded = new UnityAction(OnExploded);
         //onSmallGas = new UnityAction(OnSmallSmoke);

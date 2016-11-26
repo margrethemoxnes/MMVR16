@@ -50,18 +50,28 @@ public class BensinScript : MonoBehaviour {
     void OnExploded()
     {
         CasesScripts.ExperimentTwo = true;
-        
-        if (CasesScripts.ExperimentThree == true)
-        {
-            CasesScripts.experiment = 4;
-            Debug.Log("Experiment " + CasesScripts.experiment);
-        }
-        else {
-            CasesScripts.experiment = 3;
-            Debug.Log("Experiment " + CasesScripts.experiment);
-        }
-        //Spill av fullført eksperiment lyd
+
         DisplayHintsScript.hintDisplayed = false;
         DisplayHintsScript.startTime = Time.time;
+
+        if (CasesScripts.ExperimentThree == true)
+        {
+            if (CasesScripts.ExperimentFour == true)
+            {
+                CasesScripts.experiment = 5;
+                //Oppdater eksperimentliste-materiale i boka
+            }
+            else
+            {
+                CasesScripts.experiment = 4;
+                //Oppdater eksperimentliste-materiale i boka
+            }
+        }
+        else
+        {
+            CasesScripts.experiment = 3;
+            //Oppdater eksperimentliste-materiale i boka
+        }
     }
+    
 }

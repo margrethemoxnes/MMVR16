@@ -7,6 +7,7 @@ public class DisplayHintsScript : MonoBehaviour {
     public Material experiment2;
     public Material experiment3;
     public Material experiment4;
+    public Material experiment5;
     public static float startTime;
     public static float elapsedTime;
     public static float hintTime;
@@ -52,11 +53,21 @@ public class DisplayHintsScript : MonoBehaviour {
                         }
                         break;
                     case 4:
-                        if (BucketScript.vannPlayed == true)
+                        if (BucketScript.waterInBucket == true)
                         {
                             source.PlayOneShot(hintAvailable, 1F);
                             rend.material = experiment4;
                         }
+                        break;
+                    case 5:
+                        if (BucketScript.vannPlayed == true)
+                        {
+                            source.PlayOneShot(hintAvailable, 1F);
+                            rend.material = experiment5;
+                        }
+                        break;
+                    case 6:
+                        //Ferdig
                         break;
                 }
             }

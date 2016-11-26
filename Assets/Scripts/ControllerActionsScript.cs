@@ -6,16 +6,11 @@ using System.Collections;
 public class ControllerActionsScript : MonoBehaviour {
 
     public GameObject professor;
-    public GameObject Nitrogen;
     public GameObject Co;
-    public GameObject O2;
-    public GameObject H2O;
-    public GameObject Bensin;
 
     SteamVR_TrackedObject trackedObj;
     SteamVR_Controller.Device device;
     private AudioSource source;
-    public AudioClip hvile;
 
     // Info - Lyd
     [System.Serializable]
@@ -24,7 +19,6 @@ public class ControllerActionsScript : MonoBehaviour {
         public AudioClip nitrogen;
         public AudioClip fuel;
         public AudioClip co;
-        public AudioClip oksygen;
     }
 
     // Info - Plan
@@ -106,7 +100,7 @@ public class ControllerActionsScript : MonoBehaviour {
             {
                 if (CasesScripts.experiment != 1)
                 {
-                    source.PlayOneShot(hvile, 1F);
+                    
                 }
                 else
                 {

@@ -8,6 +8,8 @@ public class BaljeScript : MonoBehaviour {
 
     public GameObject nitrogen;
     public static bool nitrogenInBox;
+    bool nFirst;
+    bool kokFirst;
     public GameObject nitrogenSmokeInBox;
     public GameObject hugeNitrogenSmokeInBox;
     public GameObject bucket;
@@ -49,11 +51,17 @@ public class BaljeScript : MonoBehaviour {
                     OnPoofed();
                 }
                 else {
-                    source.PlayOneShot(haNitrogenFirst, 1F);
+                    if(nFirst == false) { 
+                        source.PlayOneShot(haNitrogenFirst, 1F);
+                        nFirst = true;
+                    }
                 }
             }
             else {
-                source.PlayOneShot(vannetKokesForst, 1F);
+                if(kokFirst == false) { 
+                    source.PlayOneShot(vannetKokesForst, 1F);
+                    kokFirst = true;
+                }
             }
         }
     }
@@ -61,28 +69,35 @@ public class BaljeScript : MonoBehaviour {
     void OnPoofed()
     {
         //throw new System.NotImplementedException();
-        if(CasesScripts.ExperimentFour == false) { 
-            CasesScripts.ExperimentFour = true;
+        if(CasesScripts.ExperimentFive == false) { 
+            CasesScripts.ExperimentFive = true;
             source.PlayOneShot(eureka, 1F);
         }
+
+        DisplayHintsScript.hintDisplayed = false;
+        DisplayHintsScript.startTime = Time.time;
+
         //Sjekk om alle eksperimenter er utført.
-        if (CasesScripts.ExperimentThree != true)
+
+        if (CasesScripts.ExperimentTwo == true)
         {
-            CasesScripts.experiment = 3;
-            Debug.Log("Experiment " + CasesScripts.experiment);
-            DisplayHintsScript.hintDisplayed = false;
-            DisplayHintsScript.startTime = Time.time;
-        }
-        else if (CasesScripts.ExperimentTwo != true)
-        {
-            CasesScripts.experiment = 2;
-            Debug.Log("Experiment " + CasesScripts.experiment);
-            DisplayHintsScript.hintDisplayed = false;
-            DisplayHintsScript.startTime = Time.time;
+            if (CasesScripts.ExperimentThree == true)
+            {
+                //Alle eksperimentene er ferdig
+                CasesScripts.experiment = 6;
+                //Oppdater eksperimentliste-materiale i boka
+            }
+            else
+            {
+                CasesScripts.experiment = 3;
+                //Oppdater eksperimentliste-materiale i boka
+            }
         }
         else
         {
-         
+            CasesScripts.experiment = 2;
+            //Oppdater eksperimentliste-materiale i boka
         }
+
     }
 }

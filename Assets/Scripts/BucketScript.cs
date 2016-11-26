@@ -49,6 +49,7 @@ public class BucketScript : MonoBehaviour {
                     degrees.text = "100°C";
                     boiled = true;
                     source.PlayOneShot(vannetErKokt, 1F);
+                    onBoiledWater();
                 }
             }
         }
@@ -67,6 +68,32 @@ public class BucketScript : MonoBehaviour {
                 DisplayHintsScript.hintDisplayed = false;
                 DisplayHintsScript.startTime = Time.time;
             }
+        }
+    }
+
+    void onBoiledWater()
+    {
+        CasesScripts.ExperimentFour = true;
+        DisplayHintsScript.hintDisplayed = false;
+        DisplayHintsScript.startTime = Time.time;
+
+        if (CasesScripts.ExperimentTwo == true)
+        {
+            if(CasesScripts.ExperimentThree == true)
+            {
+                CasesScripts.experiment = 5;
+                //Oppdater eksperimentliste-materiale i boka
+            }
+            else
+            {
+                CasesScripts.experiment = 3;
+                //Oppdater eksperimentliste-materiale i boka
+            }
+        }
+        else
+        {
+            CasesScripts.experiment = 2;
+            //Oppdater eksperimentliste-materiale i boka
         }
     }
 }
