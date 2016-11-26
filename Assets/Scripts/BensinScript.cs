@@ -16,11 +16,33 @@ public class BensinScript : MonoBehaviour {
 
     bool played;
 
-    private AudioSource source;
+    public static AudioSource source;
+
+    bool scriptOff;
+    ControllerActionsScript script;
+    DisplayHintsScript hints;
+
 
     void Awake() {
         source = GetComponent<AudioSource>();
         played = false;
+
+        // Sjekk om lyd spilles. Dersom lyd spilles, deaktiver ControllerActionScript. Hindre bruker i å plukke opp noe.
+        if (!source.isPlaying)
+        {
+            script.enabled = false;
+            hints.enabled = false;
+            scriptOff = true;
+        }
+        else
+        {
+            if (scriptOff)
+            {
+                script.enabled = true;
+                hints.enabled = true;
+                scriptOff = false;
+            }
+        }
     }
 
     void OnTriggerEnter(Collider col)

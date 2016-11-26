@@ -12,6 +12,8 @@ public class CasesScripts : MonoBehaviour {
     public static bool ExperimentFour;
     public static bool ExperimentFive;
 
+    AudioSource source;
+
     //private UnityAction onSaved;
     //private UnityAction onExploded;
     //private UnityAction onSmallGas;

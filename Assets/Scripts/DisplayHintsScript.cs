@@ -21,9 +21,9 @@ public class DisplayHintsScript : MonoBehaviour {
         source = GetComponent<AudioSource>();
         rend = GetComponent<Renderer>();
     }
-	
-	void FixedUpdate () {
-        if(CasesScripts.ExperimentFour == false && CasesScripts.ExperimentOne == true) { 
+
+    void FixedUpdate () {
+        if(CasesScripts.ExperimentOne == true) { 
             DisplayHints();
         }
     }
@@ -35,7 +35,6 @@ public class DisplayHintsScript : MonoBehaviour {
             if (hintDisplayed == false)
             {
                 hintDisplayed = true;
-                
                
                 //Aktiver materialet utifra aktivt experiment
                 switch (CasesScripts.experiment)
@@ -60,14 +59,14 @@ public class DisplayHintsScript : MonoBehaviour {
                         }
                         break;
                     case 5:
-                        if (BucketScript.vannPlayed == true)
+                        if (BucketScript.boiled == true)
                         {
                             source.PlayOneShot(hintAvailable, 1F);
                             rend.material = experiment5;
                         }
                         break;
                     case 6:
-                        //Ferdig
+                        // Ferdig
                         break;
                 }
             }

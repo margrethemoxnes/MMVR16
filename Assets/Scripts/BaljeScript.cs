@@ -13,9 +13,11 @@ public class BaljeScript : MonoBehaviour {
     public GameObject nitrogenSmokeInBox;
     public GameObject hugeNitrogenSmokeInBox;
     public GameObject bucket;
+    public GameObject liquidNitrogen;
+    private Renderer nitrogenRend;
 
     //public AudioClip poof;
-    private AudioSource source;
+    public static AudioSource source;
     public AudioClip nitrogenInContainer;
     public AudioClip haNitrogenFirst;
     public AudioClip vannetKokesForst;
@@ -24,6 +26,7 @@ public class BaljeScript : MonoBehaviour {
     void Awake() {
         nitrogenInBox = false;
         source = GetComponent<AudioSource>();
+        nitrogenRend = liquidNitrogen.GetComponent<Renderer>();
     }
 
     void OnTriggerEnter(Collider col)
@@ -32,6 +35,7 @@ public class BaljeScript : MonoBehaviour {
             if(nitrogenInBox == false) { 
                 source.PlayOneShot(nitrogenInContainer, 1F);
                 nitrogenInBox = true;
+                nitrogenRend.enabled = true;
             }
             Instantiate(nitrogenSmokeInBox, transform.position, Quaternion.identity);
         }

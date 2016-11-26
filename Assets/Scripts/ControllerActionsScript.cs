@@ -56,14 +56,14 @@ public class ControllerActionsScript : MonoBehaviour {
     
     // Renderers
     private Renderer bensinRend;
-    private Renderer vannRend;
+  
     private Renderer coRend;
     private Renderer nitrogenRend;
-    private Renderer oksygenRend;
+
 
     // played bools
     public static bool bensinPlayed;
-    bool vannPlayed;
+   
     bool coPlayed;
     public static bool nitrogenPlayed;
     bool oksygenPlayed;
@@ -79,16 +79,18 @@ public class ControllerActionsScript : MonoBehaviour {
         source = GetComponent<AudioSource>();
 
         bensinRend = planes.bensin.GetComponent<Renderer>();
-        vannRend = planes.vann.GetComponent<Renderer>();
         coRend = planes.karbonmonoksid.GetComponent<Renderer>();
         nitrogenRend = planes.nitrogen.GetComponent<Renderer>();
-        oksygenRend = planes.oksygen.GetComponent<Renderer>();
-        vannPlayed = false;
+    
     }
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-        device = SteamVR_Controller.Input((int)trackedObj.index);
+        if(!source.isPlaying)
+        {
+            device = SteamVR_Controller.Input((int)trackedObj.index);
+        }
+        
     }
 
     //Plukk opp
@@ -141,11 +143,6 @@ public class ControllerActionsScript : MonoBehaviour {
         }
     }
 
-    void EnableOxygen() {
-        molecules.o2.transform.localScale = new Vector3(2f, 2f, 2f);
-        oksygenRend.enabled = true;
-    }
-
     void EnableCarbonmonokside()
     {   
         if (coPlayed == false)
@@ -154,18 +151,6 @@ public class ControllerActionsScript : MonoBehaviour {
             coPlayed = true;
             molecules.co.transform.localScale = new Vector3(.5f, .5f, .5f);
             coRend.enabled = true;
-        }
-    }
-
-    void EnableWater() {
-        if(BucketScript.waterInBucket == true)
-            {
-            if (vannPlayed == false) { 
-                source.PlayOneShot(sounds.vann, 1F);
-                vannPlayed = true;
-                molecules.h2o.transform.localScale = new Vector3(2f, 2f, 2f);
-                vannRend.enabled = true;
-            }
         }
     }
 
@@ -193,6 +178,8 @@ public class ControllerActionsScript : MonoBehaviour {
             DisplayHintsScript.startTime = Time.time;
         }
     }
+
+
 
     void OnTriggerEnter(Collider col)
     {
