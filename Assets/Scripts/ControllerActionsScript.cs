@@ -7,6 +7,7 @@ public class ControllerActionsScript : MonoBehaviour {
 
     public GameObject professor;
     public GameObject Co;
+    public GameObject grill;
 
     SteamVR_TrackedObject trackedObj;
     SteamVR_Controller.Device device;
@@ -56,7 +57,6 @@ public class ControllerActionsScript : MonoBehaviour {
     
     // Renderers
     private Renderer bensinRend;
-  
     private Renderer coRend;
     private Renderer nitrogenRend;
 
@@ -114,6 +114,12 @@ public class ControllerActionsScript : MonoBehaviour {
                 if(ProfessorScript.tutorialPlayed == true) { 
                     col.attachedRigidbody.isKinematic = true;
                     col.gameObject.transform.SetParent(gameObject.transform);
+                }
+            }
+
+            if (col.gameObject == grill) {
+                if (ProfessorScript.tutorialPlayed == true) {
+                    grill.AddComponent<Rigidbody>();
                 }
             }
         }

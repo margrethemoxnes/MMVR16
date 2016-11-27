@@ -86,8 +86,6 @@ public class ProfessorScript : MonoBehaviour {
         nitrogen.AddComponent<Rigidbody>();
 
         nitrogenLid.AddComponent<Rigidbody>();
-
-        grill.AddComponent<Rigidbody>();
     }
 
 }
