@@ -44,20 +44,20 @@ public class BucketScript : MonoBehaviour {
     void FixedUpdate()
     {
         // Sjekk om lyd spilles. Dersom lyd spilles, deaktiver ControllerActionScript. Hindre bruker i å plukke opp noe.
-        if (!source.isPlaying)
-        {
-            script.enabled = false;
-            hint.enabled = false;
-            scriptOff = true;
-        }
-        else
-        {
-            if (scriptOff) { 
-                script.enabled = true;
-                hint.enabled = true;
-                scriptOff = false;
-            }
-        }
+        //if (!source.isPlaying)
+        //{
+        //    script.enabled = false;
+        //    hint.enabled = false;
+        //    scriptOff = true;
+        //}
+        //else
+        //{
+        //    if (scriptOff) { 
+        //        script.enabled = true;
+        //        hint.enabled = true;
+        //        scriptOff = false;
+        //    }
+        //}
     }
    
     void OnTriggerEnter(Collider col)
