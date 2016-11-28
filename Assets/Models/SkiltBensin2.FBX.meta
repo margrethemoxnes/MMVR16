@@ -1,30 +1,15 @@
 fileFormatVersion: 2
-guid: 003f33e24c15b8946a8b6d1cda107e5d
-timeCreated: 1480339641
+guid: 4206cc92049433d45b61a99d632897a1
+timeCreated: 1480344997
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: Box002
-    100002: Cylinder001
-    100004: //RootNode
-    100006: Teksta
-    400000: Box002
-    400002: Cylinder001
-    400004: //RootNode
-    400006: Teksta
-    2300000: Box002
-    2300002: Cylinder001
-    2300004: Teksta
-    2300006: //RootNode
-    3300000: Box002
-    3300002: Cylinder001
-    3300004: Teksta
-    3300006: //RootNode
-    4300000: Box002
-    4300002: Teksta
-    4300004: Cylinder001
-    4300006: SkiltN
+    100000: //RootNode
+    400000: //RootNode
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Bensin
   materials:
     importMaterials: 1
     materialName: 0
