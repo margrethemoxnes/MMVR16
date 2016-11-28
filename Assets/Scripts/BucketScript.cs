@@ -20,13 +20,6 @@ public class BucketScript : MonoBehaviour {
     public AudioClip vann;
     public static bool vannPlayed;
 
-    public GameObject book;
-    Renderer LeftPageRender;
-    public Material experiment3;
-    public Material experiment1_3;
-    public Material experiment2_3;
-    public Material experiment1_2_3;
-
     bool scriptOff;
     ControllerActionsScript script;
     DisplayHintsScript hint;

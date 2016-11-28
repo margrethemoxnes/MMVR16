@@ -51,6 +51,8 @@ public class ControllerActionsScript : MonoBehaviour {
         public GameObject grill;
         public GameObject nitrogenlokk;
         public GameObject bucket;
+        public GameObject o2;
+        public GameObject co;
     }
 
     
@@ -97,7 +99,7 @@ public class ControllerActionsScript : MonoBehaviour {
     {
         if (device.GetTouchDown(SteamVR_Controller.ButtonMask.Trigger))
         {
-            if (col.gameObject == professor || col.gameObject == objects.grill)
+            if (col.gameObject == professor || col.gameObject == objects.grill || col.gameObject == objects.o2 || col.gameObject == objects.co)
             {
                 if (CasesScripts.experiment != 1 && col.gameObject == professor)
                 {
@@ -181,22 +183,26 @@ public class ControllerActionsScript : MonoBehaviour {
 
     void OnTriggerEnter(Collider col)
     {
-        if(ProfessorScript.tutorialPlayed == true) { 
-            if (col.gameObject == objects.bensinkanne)
-            {
-                EnableFuel();
-            }
 
-            if (col.gameObject == objects.grill)
-            {
-                EnableCarbonmonokside();
-            }
+        if (col.gameObject == objects.grill)
+        {
+            EnableCarbonmonokside();
+        }
+
+        if (ProfessorScript.tutorialPlayed == true) {    
+
 
             if (col.gameObject == objects.nitrogenlokk)
             {
                 EnableNitrogen();
             }
+
+            if (col.gameObject == objects.bensinkanne)
+            {
+                EnableFuel();
+            }
         }
+
 
     }
 }

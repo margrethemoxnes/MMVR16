@@ -16,9 +16,7 @@ public class BensinScript : MonoBehaviour {
 
     public static AudioSource source;
 
-    bool scriptOff;
-    ControllerActionsScript script;
-    DisplayHintsScript hints;
+  
 
 
     void Awake() {
@@ -26,22 +24,6 @@ public class BensinScript : MonoBehaviour {
        
         played = false;
 
-        // Sjekk om lyd spilles. Dersom lyd spilles, deaktiver ControllerActionScript. Hindre bruker i å plukke opp noe.
-        if (!source.isPlaying)
-        {
-            script.enabled = false;
-            hints.enabled = false;
-            scriptOff = true;
-        }
-        else
-        {
-            if (scriptOff)
-            {
-                script.enabled = true;
-                hints.enabled = true;
-                scriptOff = false;
-            }
-        }
     }
 
     void OnTriggerEnter(Collider col)
@@ -81,6 +63,10 @@ public class BensinScript : MonoBehaviour {
             {
                 CasesScripts.experiment = 5;
                 DisplayExperiments.experimentsDone = 9;
+                 if (CasesScripts.ExperimentFive == true)
+                    {
+                        DisplayExperiments.experimentsDone = 12;
+                    }
             }
             else
             {
