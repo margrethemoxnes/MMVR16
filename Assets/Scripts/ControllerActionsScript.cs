@@ -7,6 +7,9 @@ public class ControllerActionsScript : MonoBehaviour {
 
     public GameObject professor;
     public GameObject Co;
+    public GameObject atv;
+    public AudioClip ikkedra;
+    bool ikkeDra;
 
     SteamVR_TrackedObject trackedObj;
     SteamVR_Controller.Device device;
@@ -82,7 +85,7 @@ public class ControllerActionsScript : MonoBehaviour {
         bensinRend = planes.bensin.GetComponent<Renderer>();
         coRend = planes.karbonmonoksid.GetComponent<Renderer>();
         nitrogenRend = planes.nitrogen.GetComponent<Renderer>();
-    
+        ikkeDra = false;
     }
 	
 	// Update is called once per frame
@@ -179,6 +182,13 @@ public class ControllerActionsScript : MonoBehaviour {
         }
     }
 
+    void IkkeDra() {
+        if (ikkeDra == false) {
+            source.PlayOneShot(ikkedra, 1F);
+            ikkeDra = true;
+        }
+    }
+
 
 
     void OnTriggerEnter(Collider col)
@@ -188,6 +198,8 @@ public class ControllerActionsScript : MonoBehaviour {
         {
             EnableCarbonmonokside();
         }
+
+       
 
         if (ProfessorScript.tutorialPlayed == true) {    
 
@@ -200,6 +212,11 @@ public class ControllerActionsScript : MonoBehaviour {
             if (col.gameObject == objects.bensinkanne)
             {
                 EnableFuel();
+            }
+
+            if (col.gameObject == atv)
+            {
+                IkkeDra();
             }
         }
 
