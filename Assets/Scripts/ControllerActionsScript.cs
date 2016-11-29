@@ -124,10 +124,17 @@ public class ControllerActionsScript : MonoBehaviour {
 
         if (device.GetTouchUp(SteamVR_Controller.ButtonMask.Trigger))
         {
-            col.attachedRigidbody.isKinematic = false;
+           
             col.gameObject.transform.SetParent(null);
+            col.attachedRigidbody.isKinematic = false;
 
-            tossObject(col.attachedRigidbody);
+            if (col.gameObject.tag == "Molecule")
+            {
+               
+            }
+            else {
+                tossObject(col.attachedRigidbody);
+            }
         }
 
        
@@ -152,7 +159,7 @@ public class ControllerActionsScript : MonoBehaviour {
         {
             source.PlayOneShot(sounds.co, 1F);
             coPlayed = true;
-            molecules.co.transform.localScale = new Vector3(.5f, .5f, .5f);
+            molecules.co.transform.localScale = new Vector3(.3f, .3f, .3f);
             coRend.enabled = true;
         }
     }
